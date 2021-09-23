@@ -11,8 +11,9 @@ import lombok.Data;
 @Entity
 @Table(name="patient")
 public class Patient {
+	
+	@Id
 	@GeneratedValue
-	@Id	
 	private int patientId;	
 	private String patientName;	
 	private String patientContact;	

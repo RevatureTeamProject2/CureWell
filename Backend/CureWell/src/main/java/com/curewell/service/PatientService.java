@@ -6,12 +6,12 @@ import com.curewell.model.Patient;
 public interface PatientService {
 	
 	public boolean addPatient(Patient patient);
-	public boolean deleteProduct(int patientId);
+	public boolean deletePatientByPatientId(int patientId);
 	public boolean updatePatient(Patient patient);
-	public Patient getPatientById(int patientId);
-	public List<Patient> getPatientByName(String patientName);
+	public Patient getPatientByPatientId(int patientId);
+	public List<Patient> getPatientByPatientName(String patientName);
 	public List<Patient> getAllPatient();
 	public boolean isPatientExists(int patientId);
-	public Patient findPatientFromIdAndPassword(int patientId,String patientPassword);
+	public Patient findPatientByPatientNameAndPatientId(String patientName,int patientId);
 
 }

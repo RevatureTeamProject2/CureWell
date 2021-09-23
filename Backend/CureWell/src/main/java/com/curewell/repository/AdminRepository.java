@@ -1,7 +1,8 @@
 package com.curewell.repository;
-import org.springframework.data.repository.CrudRepository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
 import com.curewell.model.Admin;
 
-public interface AdminRepository extends CrudRepository<Admin, Integer>  {
+public interface AdminRepository extends JpaRepository<Admin, Integer>  {
 
 }

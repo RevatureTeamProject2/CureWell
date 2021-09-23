@@ -9,9 +9,9 @@ public interface DoctorService {
 	public boolean deleteDoctor(int doctorId);
 	public boolean updateDoctor(Doctor doctor);
 	public Doctor getDoctorById(int doctorId);
-	public List<Doctor> getDoctorByName(String doctorName);
+	public List<Doctor> getDoctorByDoctorName(String doctorName);
 	public List<Doctor> getDoctorSpecialisation(String doctorSpecialisation);
 	public List<Doctor> getAllDoctors();
 	public boolean isDoctorExists(int doctorId);
-	public Doctor findDoctorFromIdAndPassword(int doctorId,String doctorPassword);
+	
 }

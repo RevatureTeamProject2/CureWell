@@ -11,13 +11,13 @@ import lombok.Data;
 @Entity
 @Table(name = "appointment")
 public class Appointment {
+	
+	@Id
 	@GeneratedValue
-	@Id	
 	private int appointmentId;
 	private String patientName;	
 	private String reasonToVisit;
 	private String date;
 	private String time;
 	private int consultationFee;
-	private String centerName;
 }

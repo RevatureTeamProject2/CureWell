@@ -11,8 +11,9 @@ import lombok.Data;
 @Entity
 @Table(name = "clinicCenter")
 public class ClinicCenter {
-	@GeneratedValue
+	
 	@Id
+	@GeneratedValue
 	int id;
 	String name;
 	String city;

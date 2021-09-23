@@ -11,10 +11,12 @@ import lombok.Data;
 @Entity
 @Table(name="doctor")
 public class Doctor {
-	@GeneratedValue
+	
 	@Id
+	@GeneratedValue
 	private int doctorId;
 	private String doctorName;
 	private String doctorSpecialisation;
 	private String doctorPassword;
+	private String city;
 }

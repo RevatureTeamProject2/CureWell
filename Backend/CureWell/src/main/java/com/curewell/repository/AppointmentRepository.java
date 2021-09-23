@@ -1,11 +1,9 @@
 package com.curewell.repository;
 
 import java.util.List;
-
+import org.springframework.data.jpa.repository.JpaRepository;
 import com.curewell.model.Appointment;
 
-public interface AppointmentRepository {
+public interface AppointmentRepository extends JpaRepository<Appointment, Integer> {
 	public List<Appointment>findByDate(String date);
-	public List<Appointment>findByCenter(String centerName);
-	public List<Appointment>findByDoctorName(String doctorName);
 }

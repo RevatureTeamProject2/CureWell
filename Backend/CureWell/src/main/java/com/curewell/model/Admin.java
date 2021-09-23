@@ -12,8 +12,9 @@ import lombok.Data;
 @Entity
 @Table(name="admin")
 public class Admin {
-	@GeneratedValue
+	
 	@Id
+	@GeneratedValue
 	private int adminId;
 	private String adminName;	
 	private String adminPassword;
