@@ -9,10 +9,11 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "clinic_center")
-public class Clinic_Center {
+@Table(name = "clinicCenter")
+public class ClinicCenter {
 	@GeneratedValue
 	@Id
-	int clinicId;
-	String clinicCenter;
+	int id;
+	String name;
+	String city;
 }

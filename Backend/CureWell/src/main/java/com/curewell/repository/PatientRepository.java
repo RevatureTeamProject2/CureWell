@@ -1,4 +1,4 @@
-package com.curewell.repo;
+package com.curewell.repository;
 
 import com.curewell.model.Patient;
 
