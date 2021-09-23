@@ -13,5 +13,6 @@ public interface DoctorService {
 	public List<Doctor> getDoctorSpecialisation(String doctorSpecialisation);
 	public List<Doctor> getAllDoctors();
 	public boolean isDoctorExists(int doctorId);
+	public Doctor findDoctorFromIdAndPassword(int doctorId,String doctorPassword);
 	
 }

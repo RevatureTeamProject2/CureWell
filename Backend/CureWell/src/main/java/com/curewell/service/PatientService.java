@@ -12,6 +12,6 @@ public interface PatientService {
 	public List<Patient> getPatientByPatientName(String patientName);
 	public List<Patient> getAllPatient();
 	public boolean isPatientExists(int patientId);
-	public Patient findPatientByPatientNameAndPatientId(String patientName,int patientId);
+	public Patient findPatientByPatientIdAndPatientPassword(int patientId,String patientPassword);
 
 }

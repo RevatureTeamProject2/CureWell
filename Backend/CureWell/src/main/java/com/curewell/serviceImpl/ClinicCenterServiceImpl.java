@@ -1,8 +1,11 @@
 package com.curewell.serviceImpl;
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.curewell.model.ClinicCenter;
+import com.curewell.model.Doctor;
 import com.curewell.repository.ClinicCenterRepository;
 import com.curewell.service.ClinicCenterService;
 
@@ -10,30 +13,30 @@ import com.curewell.service.ClinicCenterService;
 public class ClinicCenterServiceImpl implements ClinicCenterService{
 	
 	@Autowired
-	ClinicCenterRepository cliniccenterrepository;
+	ClinicCenterRepository clinicCenterRepository;
 
 	@Override
 	public List<ClinicCenter> getAllClinicCenters() {
-		// TODO Auto-generated method stub
-		return null;
+		return (List<ClinicCenter>) clinicCenterRepository.findAll();
 	}
 
 	@Override
 	public ClinicCenter getClinicCenterById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		ClinicCenter clinicCenter = clinicCenterRepository.findById(id);
+		//ClinicCenter clinicCenter = ClinicCenterData.get();
+		return clinicCenter;
 	}
 
 	@Override
 	public List<ClinicCenter> getClinicCenterByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return clinicCenterRepository.findByName(name);
 	}
 
 	@Override
 	public List<ClinicCenter> getClinicCenterByCity(String city) {
-		// TODO Auto-generated method stub
-		return null;
+		return clinicCenterRepository.findByCity(city);
+		
 	}
 	
 

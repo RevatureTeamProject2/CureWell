@@ -15,14 +15,14 @@ public class AppointmentServiceImpl implements AppointmentService {
 	  
 	@Override
 	public boolean addAppointment(Appointment appointment) {
-	System.out.println("----add appointment-------");
+	//System.out.println("----add appointment-------");
 	appointmentRepository.save(appointment);
 		return true;
 	}
 
 	@Override
 	public boolean deleteAppointment(int appointmentNumber) {
-		System.out.println("--- delete appointment called - Service");
+		//System.out.println("--- delete appointment called - Service");
 		appointmentRepository.deleteById(appointmentNumber);
 		return true;
 		
@@ -30,7 +30,7 @@ public class AppointmentServiceImpl implements AppointmentService {
 
 	@Override
 	public boolean updateAppointment(Appointment appointment) {
-		System.out.println("----- update appointment called -Service");
+		//System.out.println("----- update appointment called -Service");
 		appointmentRepository.save(appointment);
 		return true;
 	}
