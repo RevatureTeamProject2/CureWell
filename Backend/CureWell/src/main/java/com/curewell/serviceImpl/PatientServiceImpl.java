@@ -64,8 +64,8 @@ public class PatientServiceImpl implements  PatientService {
 	}
 
 	@Override
-	public Patient findPatientByPatientIdAndPatientPassword(int patientId,String patientPassword) {
-		Patient patient= patientRepository.findPatientByPatientIdAndPatientPassword(patientId, patientPassword);
+	public Patient findPatientByPatientEmailIdAndPatientPassword(String emailId,String patientPassword) {
+		Patient patient= patientRepository.findPatientByPatientEmailIdAndPatientPassword(emailId, patientPassword);
 		return patient;
 	}
 

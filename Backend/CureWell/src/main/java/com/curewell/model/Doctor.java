@@ -15,6 +15,7 @@ public class Doctor {
 	@Id
 	@GeneratedValue
 	private int doctorId;
+	private String doctorEmailId;
 	private String doctorName;
 	private String doctorSpecialisation;
 	private String doctorPassword;

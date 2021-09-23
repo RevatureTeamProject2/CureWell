@@ -14,7 +14,8 @@ public class Patient {
 	
 	@Id
 	@GeneratedValue
-	private int patientId;	
+	private int patientId;
+	private String patientEmailId;
 	private String patientName;	
 	private String patientContact;	
 	private String patientAddress;	

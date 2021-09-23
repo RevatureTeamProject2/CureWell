@@ -72,8 +72,8 @@ public class DoctorServiceImpl implements DoctorService {
 	}
 
 	@Override
-	public Doctor findDoctorFromIdAndPassword(int doctorId, String doctorPassword) {
-		Doctor doctor = doctorRepository.findDoctorByDoctorIdAndDoctorPassword(doctorId, doctorPassword);
+	public Doctor findDoctorFromEmailIdAndPassword(String emailId, String doctorPassword) {
+		Doctor doctor = doctorRepository.findDoctorByDoctorEmailIdAndDoctorPassword(emailId, doctorPassword);
 		return doctor;
 	}
 }
