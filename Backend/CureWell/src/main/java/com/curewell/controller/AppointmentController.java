@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,8 +19,6 @@ import com.curewell.model.Appointment;
 import com.curewell.service.AppointmentService;
 
 @RestController
-//@RequestMapping("appointment")
-//@CrossOrigin(origins="http://localhost:4200")
 public class AppointmentController {
 	
 	@Autowired
@@ -31,12 +30,15 @@ public class AppointmentController {
 		return appointmentService.addAppointment(appointment);
 	}
 	
-//	@DeleteMapping("/appointment/{appointmentId}")
-//	public boolean deleteAppointment(@PathVariable int appointmentId) {
-//		appointmentService.deleteAppointment(appointmentId);
-//	}
-
-
+	@DeleteMapping("/appointment/{appointmentId}")
+	public boolean deleteAppointment(@PathVariable int appointmentId) {
+		return appointmentService.deleteAppointment(appointmentId);
+	}
+	
+	@PutMapping("/appointment")
+	public boolean updatePlayer(@RequestBody Appointment appointment) {
+		return appointmentService.updateAppointment(appointment);
+	}
 	
 	
 	@GetMapping("/appointments")
@@ -46,12 +48,11 @@ public class AppointmentController {
 		appointmentList = appointmentService.getAllAppointments();
 	return appointmentList;
 	}
-//	
-//	@GetMapping("/searchByDate/{date}")
-//	public List<Appointment> getByDateAndTime(@PathVariable("date")String date)
-//	{
-//		System.out.println("get Patient Appointment Details for the Day is  "+date);
-//		return appointmentService.getAppointmentForDay(date);
-//	}
+	
+	@GetMapping("/getbydate/{date}")
+	public List<Appointment> getByDateAndTime(@PathVariable String date)
+	{
+		return appointmentService.getAppointmentForDay(date);
+	}
 
 }
