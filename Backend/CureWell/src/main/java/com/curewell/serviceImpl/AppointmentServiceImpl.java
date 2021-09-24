@@ -21,9 +21,9 @@ public class AppointmentServiceImpl implements AppointmentService {
 	}
 
 	@Override
-	public boolean deleteAppointment(int appointmentNumber) {
+	public boolean deleteAppointment(int appointmentId) {
 		//System.out.println("--- delete appointment called - Service");
-		appointmentRepository.deleteById(appointmentNumber);
+		appointmentRepository.deleteById(appointmentId);
 		return true;
 		
 	}
@@ -43,9 +43,9 @@ public class AppointmentServiceImpl implements AppointmentService {
 
 	
 	@Override
-	public boolean isAppointmentExists(int appointmentNumber) {
+	public boolean isAppointmentExists(int appointmentId) {
 
-		Optional<Appointment> patientData = appointmentRepository.findById(appointmentNumber);
+		Optional<Appointment> patientData = appointmentRepository.findById(appointmentId);
 		return patientData.isPresent();
 	}
 	

@@ -10,9 +10,9 @@ import com.curewell.model.Appointment;
   //crud
   
   public boolean addAppointment(Appointment appointment); 
-  public boolean deleteAppointment(int appointmentNumber);
+  public boolean deleteAppointment(int appointmentId);
   public boolean updateAppointment(Appointment appointment);
-  public boolean isAppointmentExists(int appointmentNumber);
+  public boolean isAppointmentExists(int appointmentId);
 
   //appointment functionalities 
   
