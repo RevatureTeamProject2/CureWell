@@ -1,5 +1,24 @@
-.pLogin {
-    text-align: center;
+* {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+
+.welcomeh2 {
+    /* color: #03989e; */
     font-family: 'Cooper Black';
+    text-align: center;
     font-size: 35px;
+}
+
+input{
+    border-radius: 100px;
+    text-align: center;
+    
+
+}
+select{
+    border-radius: 30px;
+    text-align: center;
+    height: 35px;
 }

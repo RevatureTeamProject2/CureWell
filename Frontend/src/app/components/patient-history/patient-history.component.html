@@ -1,0 +1,37 @@
+<app-d-navbar></app-d-navbar>
+<br>
+
+<h2 class="welcomeh2">Patient Details</h2>
+<br>
+<div style="text-align: center;display: block;">
+    <table  cellspacing="10" cellpadding="10" class="table table-bordered">
+        
+         <thead style="background-color: #03989e; color: #ffffff;">   
+        <tr>
+            
+        <th>Patient Name </th>
+        <th>Patient Age</th>
+        <th>Gender</th>
+        <th>Address</th>
+        <th>Patient Contact</th>
+        <th>Gaurdian Name</th>
+        <th>Gaurdian Contact</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let patient of patients">
+    <td class="">{{patient.patientName}}</td>
+    <td class="table-primary">{{patient.patientAge}}</td>
+    <td class="table-success">{{patient.patientGender}}</td>
+    <td class="table-warning">{{patient.patientAddress}}</td>
+    <td class="table-danger">{{patient.patientContact}}</td>
+    <td class="table-info">{{patient.patientGaurdian}}</td>
+    <td class="table-active">{{patient.gaurdianContact}}</td>
+   
+    </tr>
+    </tbody>
+
+
+</table>
+</div>
+

@@ -1,0 +1,28 @@
+* {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.welcomeh2 {
+    /* color: #03989e; */
+    font-family: 'Cooper Black';
+    text-align: center;
+    font-size: 35px;
+}
+
+.appointment-card{
+    text-align: center;
+    /* background-color: #2a2f3d; */
+    background-color: #20482D;
+    border-radius: 20px;
+    color: beige;
+    width: 330px;
+    height: 50vh;
+    margin: 10px;
+    padding: 20px;
+    margin-left: 30px;
+}
+
+.appointment-card a {
+    color: aqua;
+}

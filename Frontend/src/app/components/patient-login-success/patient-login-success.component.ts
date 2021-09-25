@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-patient-login-success',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientLoginSuccessComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router:Router) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+   
   }
+
+ 
 
 }

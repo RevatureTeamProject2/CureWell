@@ -1,0 +1,42 @@
+<app-d-navbar></app-d-navbar>
+<br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div class="appointment-card">
+                <br />
+                <div>
+                    <img src="./assets/book.png" width="60px">
+                </div>
+                <br />
+                <br />
+                <div>
+                    <h5> View Appointments </h5>
+                    <p>Paramedical staff submits patient data to scheduler</p>
+                    <button class="btn btn-primary"><a (click)="getAppointment()">View Appointment</a></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="appointment-card">
+                <br />
+                <div>
+                    <img src="./assets/report.png" width="60px">
+                </div>
+                <br />
+                <br />
+                <div>
+                    <h5> History of Patients</h5>
+                    <p>To gets patients data in queue and history</p>
+                    <button class="btn btn-primary"><a href="patient-history" style="color: black; text-decoration: none;">View Patient</a></button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<app-footer></app-footer>

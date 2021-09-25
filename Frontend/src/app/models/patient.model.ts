@@ -1,4 +1,6 @@
 export class Patient {
+
+    
     patientId!: number;
 
 
@@ -14,4 +16,5 @@ export class Patient {
 
     
     patientPassword!: string;
+
 }

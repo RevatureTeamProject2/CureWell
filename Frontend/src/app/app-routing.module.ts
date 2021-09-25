@@ -1,28 +1,38 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { AboutusComponent } from './components/aboutus/aboutus.component';
-import { BookAppointmentComponent } from './components/book-appointment/book-appointment.component';
-import { ContactComponent } from './components/contact/contact.component';
-import { DoctorLoginComponent } from './components/doctor-login/doctor-login.component';
-import { DoctorSignupComponent } from './components/doctor-signup/doctor-signup.component';
-import { HomeComponent } from './components/home/home.component';
-import { PatientLoginSuccessComponent } from './components/patient-login-success/patient-login-success.component';
+import { RouterModule, Routes } from '@angular/router';
+import { HomePageComponent } from './components/home-page/home-page.component';
 import { PatientLoginComponent } from './components/patient-login/patient-login.component';
-import { PatientSignupComponent } from './components/patient-signup/patient-signup.component';
-import { ViewAppointmentComponent } from './components/view-appointment/view-appointment.component';
-
+import { DoctorLoginComponent } from './components/doctor-login/doctor-login.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { PatientLoginSuccessComponent } from './components/patient-login-success/patient-login-success.component';
+import { AboutAppComponent } from './components/about-app/about-app.component';
+import { DoctorSignupComponent } from './components/doctor-signup/doctor-signup.component';
+import { BookAppointmentComponent } from './components/book-appointment/book-appointment.component';
+import { DoctorDashboardComponent } from './components/doctor-dashboard/doctor-dashboard.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { ViewAppointmentsComponent } from './components/view-appointments/view-appointments.component';
+import{ OrderMedicinesComponent} from './components/order-medicines/order-medicines.component';
+import { PatientHistoryComponent } from './components/patient-history/patient-history.component';
 
 const routes: Routes = [
-  { path: '', component:HomeComponent },
-  { path: 'patient-login', component:PatientLoginComponent},
-  { path: 'doctor-login', component:DoctorLoginComponent},
-  { path: 'patient-signup', component:PatientSignupComponent},
-  { path: 'doctor-signup', component:DoctorSignupComponent},
-  { path: 'about-us', component:AboutusComponent},
-  { path: 'book-appointment', component:BookAppointmentComponent},
-  { path: 'contact-us', component:ContactComponent},
-  { path: 'view-appointment', component:ViewAppointmentComponent},
-  { path: 'patient-login-success', component:PatientLoginSuccessComponent}
+  { path: '', component:HomePageComponent },
+  { path: 'patient-login', component:PatientLoginComponent },
+  { path: 'doctor-login', component:DoctorLoginComponent },
+  {path:'doctor-signup/:doctorId',component:DoctorSignupComponent},
+  {path:'about',component:AboutUsComponent},
+  {path:'contact',component:ContactUsComponent},
+  { path: 'signup/:patientId', component:SignupComponent },
+  { path: 'patient-login-success', component:PatientLoginSuccessComponent },
+  { path: 'about-app', component:AboutAppComponent },
+  {path:'book-appointment',component:BookAppointmentComponent},
+  { path: 'doctor-dashboard', component:DoctorDashboardComponent},
+  {path:'view-appiontment',component:ViewAppointmentsComponent},
+  {path:'order-medicines', component:OrderMedicinesComponent},
+  {path:'patient-history',component:PatientHistoryComponent}
+
+
+
 ];
 
 @NgModule({

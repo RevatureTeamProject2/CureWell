@@ -1,8 +1,10 @@
+
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 import { Observable, throwError } from 'rxjs';
 import { Patient } from '../models/patient.model';
-import { retry, catchError } from 'rxjs/operators';
+import { retry ,catchError } from 'rxjs/operators';
 
 const patientUrl= "http://localhost:9090/patient";
 
@@ -12,11 +14,14 @@ const patientUrl= "http://localhost:9090/patient";
 })
 export class PatientService {
 
+  
+
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
   }
+
 
   constructor(public http:HttpClient) { }
 
