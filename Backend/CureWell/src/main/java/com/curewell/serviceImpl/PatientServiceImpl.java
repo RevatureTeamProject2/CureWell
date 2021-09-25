@@ -50,25 +50,20 @@ public class PatientServiceImpl implements  PatientService {
 	}
 	
 	@Override
-	public List<Patient> getAllPatient() {
+	public List<Patient> getAllPatients() {
 		return (List<Patient>) patientRepository.findAll();
 	}
 
 	@Override
-	public boolean isPatientExists(int patientId) {
-		Patient patientData = patientRepository.findPatientByPatientId(patientId);
-		if(patientData!=null) {
-			return true;
+	public boolean isPatientExists() {
+		List<Patient> patientList = patientRepository.findAll();
+		if(patientList.size()==0) {
+			return false;
 		}
-		return false;
+		return true;
 	}
 
-	@Override
-	public Patient findPatientByPatientEmailIdAndPatientPassword(String emailId,String patientPassword) {
-		Patient patient= patientRepository.findPatientByPatientEmailIdAndPatientPassword(emailId, patientPassword);
-		return patient;
-	}
-
+	
 	
 
 }

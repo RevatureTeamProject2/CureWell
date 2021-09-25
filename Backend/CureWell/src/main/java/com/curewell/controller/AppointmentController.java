@@ -36,7 +36,7 @@ public class AppointmentController {
 	}
 	
 	@PutMapping("/appointment")
-	public boolean updatePlayer(@RequestBody Appointment appointment) {
+	public boolean updateAppointment(@RequestBody Appointment appointment) {
 		return appointmentService.updateAppointment(appointment);
 	}
 	

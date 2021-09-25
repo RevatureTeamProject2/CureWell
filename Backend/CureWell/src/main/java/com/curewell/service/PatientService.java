@@ -10,8 +10,7 @@ public interface PatientService {
 	public boolean updatePatient(Patient patient);
 	public Patient getPatientByPatientId(int patientId);
 	public List<Patient> getPatientByPatientName(String patientName);
-	public List<Patient> getAllPatient();
-	public boolean isPatientExists(int patientId);
-	public Patient findPatientByPatientEmailIdAndPatientPassword(String emailId,String patientPassword);
+	public List<Patient> getAllPatients();
+	public boolean isPatientExists();
 
 }

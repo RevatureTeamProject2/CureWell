@@ -11,7 +11,7 @@ public interface AdminService {
 	public Admin getAdminById(int adminId);
 	public List<Admin> getAdminByName(String adminName);
 	public List<Admin> getAllAdmin();
-	public boolean isAdminExists(int adminId);
+	public boolean isAdminExists();
 
 }
 

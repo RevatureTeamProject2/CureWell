@@ -14,6 +14,25 @@ public class ClinicCenterServiceImpl implements ClinicCenterService{
 	
 	@Autowired
 	ClinicCenterRepository clinicCenterRepository;
+	
+	@Override
+	public boolean addClinicCenter(ClinicCenter clinicCenter) {
+		clinicCenterRepository.save(clinicCenter);
+		return true;
+		
+	}
+
+	@Override
+	public boolean deleteClinicCenter(int id) {
+		clinicCenterRepository.deleteById(id);
+		return true;
+	}
+
+	@Override
+	public boolean updateClinicCenter(ClinicCenter clinicCenter) {
+		clinicCenterRepository.save(clinicCenter);
+		return true;
+	}
 
 	@Override
 	public List<ClinicCenter> getAllClinicCenters() {

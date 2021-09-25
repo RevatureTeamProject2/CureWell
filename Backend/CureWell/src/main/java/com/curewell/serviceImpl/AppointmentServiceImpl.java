@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.curewell.repository.AppointmentRepository;
 import com.curewell.service.AppointmentService;
 import com.curewell.model.Appointment;
+import com.curewell.model.Doctor;
 @Service
 public class AppointmentServiceImpl implements AppointmentService {
 	  @Autowired
@@ -36,17 +37,19 @@ public class AppointmentServiceImpl implements AppointmentService {
 	}
 
 	
-	@Override public List<Appointment> getAllAppointments()
+	@Override
+	public List<Appointment> getAllAppointments()
 	{
 	  return(List<Appointment>)appointmentRepository.findAll();
 	 }
 
-	
 	@Override
-	public boolean isAppointmentExists(int appointmentId) {
-
-		Optional<Appointment> patientData = appointmentRepository.findById(appointmentId);
-		return patientData.isPresent();
+    public boolean isAppointmentExists() {
+		List<Appointment> appointmentList =appointmentRepository.findAll();
+		if(appointmentList.size()==0) {
+			return false;
+		}
+		return true;
 	}
 	
 

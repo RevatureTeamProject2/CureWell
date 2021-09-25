@@ -56,13 +56,12 @@ public class DoctorServiceImpl implements DoctorService {
 	}
 
 	@Override
-	public boolean isDoctorExists(int doctorId) {
-		Doctor doctorData = doctorRepository.findDoctorByDoctorId(doctorId);
-		if (doctorData != null) {
-			return true;
-		} else {
+	public boolean isDoctorExists() {
+		List<Doctor> doctorList =doctorRepository.findAll();
+		if(doctorList.size()==0) {
 			return false;
 		}
+		return true;
 	}
 
 	@Override
@@ -72,8 +71,20 @@ public class DoctorServiceImpl implements DoctorService {
 	}
 
 	@Override
-	public Doctor findDoctorFromEmailIdAndPassword(String emailId, String doctorPassword) {
-		Doctor doctor = doctorRepository.findDoctorByDoctorEmailIdAndDoctorPassword(emailId, doctorPassword);
-		return doctor;
+	public Doctor getDoctorEmailId(String emailId) {
+		return doctorRepository.findDoctorByDoctorEmailId(emailId);
 	}
+	
+	@Override
+	public Doctor loginValidation(Doctor doctor) {
+		return doctor;
+	
+    }
+	@Override
+	public Doctor getDoctorPassword(String Password) {
+		
+		return null;
+	}
+	
 }
+	

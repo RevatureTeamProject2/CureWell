@@ -12,7 +12,7 @@ import com.curewell.model.Appointment;
   public boolean addAppointment(Appointment appointment); 
   public boolean deleteAppointment(int appointmentId);
   public boolean updateAppointment(Appointment appointment);
-  public boolean isAppointmentExists(int appointmentId);
+  public boolean isAppointmentExists();
 
   //appointment functionalities 
   
