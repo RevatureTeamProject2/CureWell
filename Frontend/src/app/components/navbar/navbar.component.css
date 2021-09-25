@@ -1,0 +1,124 @@
+.curewell {
+    position: relative;
+    top: 15px;
+    text-align: center;
+    font-weight: bold;
+    /* font-family: 'Edwardian Script ITC'; */
+    font-family: 'Splash';
+    margin-top: 20px;
+    font-size: 100px;
+    text-shadow: 0 0 15px #7ed957, 0 0 10px #e41501;
+    color: #03989e;
+    /* text-decoration: #4D80DC overline underline wavy; */
+}
+
+.navbar {
+    /* background-color: #86DC4D; */
+    background-color: #7ed957;
+}
+
+.no-bullets {
+    list-style-type: none;
+    
+}
+
+.no-bullets a {
+    font-size: 20px;
+    font-family: 'Arial Rounded MT Bold';
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: black;
+}
+
+.no-bullets a:hover {
+    text-decoration: none;
+    background-color: #03989e;
+    color: #F9D0CD;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.vaccine {
+    list-style-type: none;
+}
+
+.vaccine a {
+    font-size: 20px;
+    text-decoration: none;
+    background-color: #03989e;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #F9D0CD;
+}
+
+.vaccine a:hover {
+    color: #7ed957;
+    /* background-color: #e41501; */
+    background-color: #f8746d;
+}
+
+/* .sublist {
+
+} */
+
+.no-bullets{
+    list-style-type: none;
+}
+.no-bullets {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+  .navbar li {display: inline-block; list-style-type: none;}
+  .navbar li:hover {background: #7ed957; list-style-type: none;}
+  .navbar li:hover .no-bullets {display: block; list-style-type: none;}
+  .navbar li .no-bullets {
+    position: absolute;
+    width: 180px;
+    display: none;
+    list-style-type: none;
+    /* padding-top: 25px;
+    padding-bottom: 25px; */
+  }
+
+  .navbar li .no-bullets li { 
+    background: #7ed957; 
+    display: block; 
+    list-style-type: none;
+    /* padding-top: 20px;
+    padding-bottom: 20px; */
+  }
+  .navbar li .no-bullets li a {
+      display:block !important; 
+      list-style-type: none;
+    }
+     
+  .navbar li .no-bullets li:hover {
+      background: #7ed957; 
+      list-style-type: none;
+      /* padding-top: 20px;
+      padding-bottom: 20px; */
+    }
+
+    /* .loginhover {
+        color: #2a2f3d;
+    } */
+    
+    /* .loginhover:hover {
+        background: #4D80DC;
+        color: #ffffff;
+        text-decoration: none;
+    } */
+
+    .logo {
+        position: absolute;
+        margin-top: -40px;
+        margin-left: 10px;
+    }
