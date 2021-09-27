@@ -10,8 +10,8 @@ import com.curewell.service.AppointmentService;
 import com.curewell.model.Appointment;
 @Service
 public class AppointmentServiceImpl implements AppointmentService {
-	  @Autowired
-	  AppointmentRepository appointmentRepository;
+	@Autowired
+	AppointmentRepository appointmentRepository;
 	  
 	@Override
 	public boolean addAppointment(Appointment appointment) {
@@ -53,7 +53,9 @@ public class AppointmentServiceImpl implements AppointmentService {
 	@Override
 	public List<Appointment> getAppointmentForDay(String date) {
 		
-		return appointmentRepository.findByDate(date);
+		List<Appointment> listAppointment=null;
+		listAppointment=appointmentRepository.findByDate(date);
+		return listAppointment;
 	}
 	  
 		

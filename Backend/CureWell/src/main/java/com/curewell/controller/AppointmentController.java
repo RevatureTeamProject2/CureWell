@@ -1,6 +1,6 @@
 package com.curewell.controller;
 import java.util.List;
-
+import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -32,8 +32,12 @@ public class AppointmentController {
 	}
 	
 	@DeleteMapping("/deletebyid/{appointmentId}")
-	public boolean deleteAppointment(@PathVariable int appointmentId) {
-		return appointmentService.deleteAppointment(appointmentId);
+	public boolean deleteAppointment(@PathVariable int appointmentId) throws Exception {
+		boolean flag= appointmentService.deleteAppointment(appointmentId);
+		if(flag==false) {
+			throw new NoSuchElementException();
+		}
+		return flag;
 	}
 	
 	@PutMapping("/update")
@@ -43,17 +47,27 @@ public class AppointmentController {
 	
 	
 	@GetMapping("/getall")
-	public List<Appointment> getAppointments()
+	public List<Appointment> getAppointments() throws Exception
 	{
 		List<Appointment> appointmentList=null;
 		appointmentList = appointmentService.getAllAppointments();
-	return appointmentList;
+		if(appointmentList==null)
+		{
+			throw new NoSuchElementException();
+		}
+		return appointmentList;
 	}
 	
 	@GetMapping("/getbydate/{date}")
-	public List<Appointment> getByDateAndTime(@PathVariable String date)
+	public List<Appointment> getByDateAndTime(@PathVariable String date) throws Exception
 	{
-		return appointmentService.getAppointmentForDay(date);
+		List<Appointment> appointmentList=null;
+		appointmentList = appointmentService.getAppointmentForDay(date);
+		if(appointmentList.size()==0)
+		{
+			throw new NoSuchElementException();
+		}
+		return appointmentList;
 	}
 
 }

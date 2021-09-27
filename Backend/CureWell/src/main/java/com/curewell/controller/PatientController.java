@@ -1,15 +1,14 @@
 package com.curewell.controller;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.curewell.service.PatientService;
@@ -22,8 +21,13 @@ public class PatientController {
 	PatientService patientService;
 	
 	@GetMapping("/getall")
-	public List<Patient> getAllPatient(){
-		return patientService.getAllPatient();
+	public List<Patient> getAllPatient() throws Exception{
+		List<Patient> listPatient=null;
+		listPatient=patientService.getAllPatient();
+		if(listPatient==null) {
+			throw new NoSuchElementException();
+		}
+		return listPatient;
 	}
 	
 	@PostMapping("/add")
@@ -32,36 +36,44 @@ public class PatientController {
 	}
 	
 	@GetMapping("/getbyid/{id}")
-	public Patient getPatientrById(@PathVariable int id) {
+	public Patient getPatientrById(@PathVariable int id) throws Exception{
 		// TODO Auto-generated method stub
-		return patientService.getPatientByPatientId(id);
+		Patient patient=null;
+		patient=patientService.getPatientByPatientId(id);
+		if(patient==null) {
+			throw new NoSuchElementException();
+		}
+		return patient;
 	}
 	
 	@GetMapping("/getbymail/{emailId}")
-	public Patient getPatientrByEmailId(@PathVariable String emailId) {
-		// TODO Auto-generated method stub
-		return patientService.getPatientByPatientEmailId(emailId);
+	public Patient getPatientrByEmailId(@PathVariable String emailId) throws Exception{
+		Patient patient=null;
+		patient= patientService.getPatientByPatientEmailId(emailId);
+		if(patient==null) {
+			throw new NoSuchElementException();
+		}
+		return patient;
 	}
 	
 	@GetMapping("/getbycontact/{contactNumber}")
 	public Patient getPatientrByContactNumber(@PathVariable String contactNumber) {
-		// TODO Auto-generated method stub
-		return patientService.getPatientByPatientContact(contactNumber);
+		Patient patient=null;
+		patient= patientService.getPatientByPatientContact(contactNumber);
+		if(patient==null) {
+			throw new NoSuchElementException();
+		}
+		return patient;
 	}
-	
-//	@PostMapping("/getbymail")
-//	public Patient getPatientByMailId(@RequestBody String emailId) {
-//		return patientService.getPatientByPatientEmailId(emailId);
-//	}
-
-//	@GetMapping("/login/{emailid}/{password}")
-//	public Patient patientLogin(@PathVariable String emailId,@PathVariable String password) {
-//		return patientService.findPatientByPatientEmailIdAndPatientPassword(emailId, password);
-//	}
 	
 	
 	@PostMapping("/login")
 	public Patient patientLogin(@RequestBody Patient patient) {
-		return patientService.findPatientByPatientEmailIdAndPatientPassword(patient.getPatientEmailId(), patient.getPatientPassword());
+		Patient patientr=null;
+		patientr= patientService.findPatientByPatientEmailIdAndPatientPassword(patient.getPatientEmailId(), patient.getPatientPassword());
+		if(patientr==null) {
+			throw new NoSuchElementException();
+		}
+		return patientr;
 	}
 }
