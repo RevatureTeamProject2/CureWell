@@ -25,24 +25,24 @@ public class AppointmentController {
 	@Autowired
 	AppointmentService appointmentService;
 	
-	@PostMapping("/appointment")
+	@PostMapping("/add")
 	public boolean addAppointment(@RequestBody Appointment appointment) {
 		
 		return appointmentService.addAppointment(appointment);
 	}
 	
-	@DeleteMapping("/appointment/{appointmentId}")
+	@DeleteMapping("/deletebyid/{appointmentId}")
 	public boolean deleteAppointment(@PathVariable int appointmentId) {
 		return appointmentService.deleteAppointment(appointmentId);
 	}
 	
-	@PutMapping("/appointment")
-	public boolean updatePlayer(@RequestBody Appointment appointment) {
+	@PutMapping("/update")
+	public boolean updateAppointment(@RequestBody Appointment appointment) {
 		return appointmentService.updateAppointment(appointment);
 	}
 	
 	
-	@GetMapping("/appointments")
+	@GetMapping("/getall")
 	public List<Appointment> getAppointments()
 	{
 		List<Appointment> appointmentList=null;
@@ -50,7 +50,7 @@ public class AppointmentController {
 	return appointmentList;
 	}
 	
-	@GetMapping("/getappointmentbydate/{date}")
+	@GetMapping("/getbydate/{date}")
 	public List<Appointment> getByDateAndTime(@PathVariable String date)
 	{
 		return appointmentService.getAppointmentForDay(date);

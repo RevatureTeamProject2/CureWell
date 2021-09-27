@@ -19,25 +19,25 @@ public class ClinicCenterController {
 	@Autowired
 	ClinicCenterService clinicCenterService;
 
-	@PostMapping("/cliniccenter")
+	@PostMapping("/add")
 	public boolean addClinicCenter(@RequestBody ClinicCenter clinicCenter) {
 		clinicCenterService.addClinicCenter(clinicCenter);
 		return true;
 	}
 
-	@DeleteMapping("/deletebycenterid/{id}")
+	@DeleteMapping("/deletebyid/{id}")
 	public boolean deleteClinicCenter(@PathVariable int id) {
 		clinicCenterService.deleteClinicCenter(id);
 		return true;
 	}
 
-	@PutMapping("/updatebycenetrid/{id}")
+	@PutMapping("/updatebyid/{id}")
 	public boolean updateClinicCenter(@RequestBody ClinicCenter clinicCenter) {
 		clinicCenterService.updateClinicCenter(clinicCenter);
 		return true;
 	}
 
-	@GetMapping("/cliniccenters")
+	@GetMapping("/getall")
 	public List<ClinicCenter> getAllClinicCenters() {
 		
 		List<ClinicCenter> clinicCenterList=null;
@@ -45,18 +45,18 @@ public class ClinicCenterController {
 	    return clinicCenterList;
 	}
 
-	@GetMapping("/getbycenterid/{id}")
+	@GetMapping("/getbyid/{id}")
 	public ClinicCenter getClinicCenterById(@PathVariable int id) {
 		
 		return clinicCenterService.getClinicCenterById(id);
 	}
 
-	@GetMapping("/getbycentername/{name}")
+	@GetMapping("/getbyname/{name}")
 	public List<ClinicCenter> getClinicCenterByName(@PathVariable String name) {
 		return clinicCenterService.getClinicCenterByName(name);
 	}
 
-	@GetMapping("/getbycentercity/{city}")
+	@GetMapping("/getbycity/{city}")
 	public List<ClinicCenter> getClinicCenterByCity(@PathVariable String city) {
 		return clinicCenterService.getClinicCenterByCity(city);
 	}
