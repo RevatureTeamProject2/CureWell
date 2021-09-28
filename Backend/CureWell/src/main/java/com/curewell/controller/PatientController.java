@@ -59,7 +59,7 @@ public class PatientController {
 	}
 	
 	@GetMapping("/getbycontact/{contactNumber}")
-	public Patient getPatientrByContactNumber(@PathVariable long contactNumber) {
+	public Patient getPatientrByContactNumber(@PathVariable long contactNumber) throws Exception {
 		Patient patient=null;
 		patient= patientService.getPatientByPatientContact(contactNumber);
 		if(patient==null) {
@@ -70,7 +70,7 @@ public class PatientController {
 	
 	
 	@PostMapping("/login")
-	public Patient patientLogin(@RequestBody Patient patient) {
+	public Patient patientLogin(@RequestBody Patient patient) throws Exception{
 		Patient patientr=null;
 		patientr= patientService.findPatientByPatientEmailIdAndPatientPassword(patient.getPatientEmailId(), patient.getPatientPassword());
 		if(patientr==null) {

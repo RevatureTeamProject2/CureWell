@@ -1,8 +1,8 @@
 package com.curewell.controller;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
-import org.jboss.logging.NDC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -73,6 +73,12 @@ public class DoctorController {
 	
 	@PostMapping("/login")
 	public Doctor doctorLogin(@RequestBody Doctor doctor) {
-		return doctorService.findDoctorFromEmailIdAndPassword(doctor.getDoctorEmailId(),doctor.getDoctorPassword());
+		Doctor doctor2=null;
+		doctor2=doctorService.findDoctorFromEmailIdAndPassword(doctor.getDoctorEmailId(),doctor.getDoctorPassword());
+		if(doctor2==null)
+		{
+			throw new NoSuchElementException();
+		}
+		return doctor2;
 	}
 }

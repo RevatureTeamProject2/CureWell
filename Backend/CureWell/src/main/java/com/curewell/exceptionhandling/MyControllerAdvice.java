@@ -14,7 +14,7 @@ public class MyControllerAdvice {
 	@ExceptionHandler(NoSuchElementException.class)
 	public ResponseEntity<String> handleNoSuchElementException (NoSuchElementException elementException)
 	{
-		return new  ResponseEntity<String>("No Such value present", HttpStatus.NOT_FOUND);
+		return new  ResponseEntity<String>("Invalid Input", HttpStatus.NOT_FOUND);
 	}
 	
 	@ExceptionHandler(NullPointerException.class)
