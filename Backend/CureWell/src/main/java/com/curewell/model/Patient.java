@@ -17,17 +17,14 @@ public class Patient {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int patientId;
-	@Column(nullable = false,unique = true)
+	@Column(unique = true)
 	private String patientEmailId;
-	@Column(nullable = false)
 	private String patientName;
-	private String patientContact;	
+	private long patientContact;	
 	private String patientAddress;	
-	@Column(nullable = false)
 	private String patientGender;	
 	private int patientAge;
-	private String patientGaurdian;	
-	private String guardianContact;
-	@Column(nullable = false)
+	private String patientGuardian;	
+	private long guardianContact;
 	private String patientPassword;
 }

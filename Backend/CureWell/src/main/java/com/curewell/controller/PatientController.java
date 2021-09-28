@@ -59,7 +59,7 @@ public class PatientController {
 	}
 	
 	@GetMapping("/getbycontact/{contactNumber}")
-	public Patient getPatientrByContactNumber(@PathVariable String contactNumber) {
+	public Patient getPatientrByContactNumber(@PathVariable long contactNumber) {
 		Patient patient=null;
 		patient= patientService.getPatientByPatientContact(contactNumber);
 		if(patient==null) {

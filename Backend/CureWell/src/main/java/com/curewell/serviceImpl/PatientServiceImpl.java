@@ -95,7 +95,7 @@ public class PatientServiceImpl implements  PatientService {
 	}
 
 	@Override
-	public Patient getPatientByPatientContact(String patientContact) {
+	public Patient getPatientByPatientContact(long patientContact) {
 		Patient patient= null;
 		patient= patientRepository.findPatientBypatientContact(patientContact);
 		return patient;

@@ -5,6 +5,7 @@ import java.util.NoSuchElementException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
@@ -27,6 +28,12 @@ public class MyControllerAdvice {
 	{
 		return new  ResponseEntity<String>("No Such Value Present", HttpStatus.NOT_FOUND);
 	}
+	@ExceptionHandler(HttpMessageNotReadableException.class)
+	public ResponseEntity<String> handleHttpMessageNotReadableException(HttpMessageNotReadableException elementException)
+	{
+		return new  ResponseEntity<String>("contact number should not be preceeded with 0 ", HttpStatus.BAD_REQUEST);
+	}
+
 	
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity<String> handlAllException (Exception elementException)

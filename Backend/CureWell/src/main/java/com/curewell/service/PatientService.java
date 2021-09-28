@@ -9,7 +9,7 @@ public interface PatientService {
 	boolean updatePatient(Patient patient);
 	Patient getPatientByPatientId(int patientId);
 	Patient getPatientByPatientEmailId(String patientEmailId);
-	Patient getPatientByPatientContact(String patientContact);
+	Patient getPatientByPatientContact(long patientContact);
 	List<Patient> getPatientByPatientName(String patientName);
 	List<Patient> getAllPatient();
 	boolean isPatientExists(int patientId);

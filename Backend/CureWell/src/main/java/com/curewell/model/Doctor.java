@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.sun.istack.NotNull;
+
 import lombok.Data;
 
 @Data
@@ -17,14 +19,13 @@ public class Doctor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int doctorId;
-	@Column(nullable = false,unique = true)
+	@Column(unique = true)
+	@NotNull
 	private String doctorEmailId;
-	@Column(nullable = false)
 	private long contactNo;
-	@Column(nullable = false)
 	private String doctorName;
 	private String doctorSpecialisation;
-	@Column(nullable = false)
+	@NotNull
 	private String doctorPassword;
 	private String city;
 }
