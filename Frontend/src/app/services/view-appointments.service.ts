@@ -21,7 +21,7 @@ export class ViewAppointmentsService {
   constructor(public http:HttpClient) { }
 
   getAppointments() :Observable<BookAppointment[]>{
-    return this.http.get<BookAppointment []>(patientUrl)
+    return this.http.get<BookAppointment []>(patientUrl + "/getall")
     .pipe(
       retry(1),
       catchError(this.errorHandler)

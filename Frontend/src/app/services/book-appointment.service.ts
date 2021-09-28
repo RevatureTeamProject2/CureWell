@@ -25,7 +25,7 @@ export class BookAppointmentService {
   }
 
   getAppointments() :Observable<BookAppointment[]>{
-    return this.http.get<BookAppointment[]>(appointmentUrl)
+    return this.http.get<BookAppointment[]>(appointmentUrl + "/getall")
     .pipe(
       retry(1),
       catchError(this.errorHandler)
@@ -41,7 +41,7 @@ export class BookAppointmentService {
   }
 
   saveAppointment(appointment:BookAppointment):Observable<BookAppointment>{
-    return this.http.post<BookAppointment>(appointmentUrl, appointment ,this.httpOptions)
+    return this.http.post<BookAppointment>(appointmentUrl + "/add", appointment ,this.httpOptions)
     .pipe(
       retry(1),
       catchError(this.errorHandler)

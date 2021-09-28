@@ -13,6 +13,7 @@ import { PatientService } from 'src/app/services/patient.service';
 export class SignupComponent implements OnInit {
 
   patient?:Patient;
+  patientEmailId?: string;
   patientId?: number;
   patientForm?:FormGroup;
   
@@ -25,11 +26,11 @@ export class SignupComponent implements OnInit {
 
 
     this.patient = new Patient();
-    this.patientId = this.activatedRoute.snapshot.params['patientId'];
+    this.patientEmailId = this.activatedRoute.snapshot.params['patientEmailId'];
     if (this.patientId == -1) {
       //save
       this.patientForm = this.formBuilder.group({     
-        patientId:['', [Validators.required, Validators.min(1)]],
+        patientEmailId:['', [Validators.required, Validators.pattern('[A-Za-z0-9._%-]+@[A-Za-z0-9._%-]+\\.[a-z]{2,3}')]],
         patientName:['', [Validators.required, Validators.minLength(3)]],    
         patientContact:['', [Validators.required, Validators.minLength(10),Validators.maxLength(10)]],    
         patientAddress:['', [Validators.required]],      
@@ -48,7 +49,7 @@ export class SignupComponent implements OnInit {
             console.log(data),
             this.patient = data
             this.patientForm = this.formBuilder.group({
-            patientId:[this.patient.patientName, [Validators.required, Validators.min(1)]],
+            patientEmailId:[this.patient.patientName, [Validators.required, Validators.pattern('[A-Za-z0-9._%-]+@[A-Za-z0-9._%-]+\\.[a-z]{2,3}')]],
             patientName:[this.patient.patientName, [Validators.required, Validators.minLength(5)]],        
             patientContact:['', [Validators.required, Validators.minLength(5)]],        
             patientAddress:['', [Validators.required, Validators.minLength(5)]],          
@@ -107,18 +108,18 @@ export class SignupComponent implements OnInit {
 
   }
 
-  addPatient(){
-    //write the code to navigate -- programmaticallly
-    // console.log("Add product called")
-    this.router.navigate(['signup',"-1"]);
+  // addPatient(){
+  //   //write the code to navigate -- programmaticallly
+  //   // console.log("Add product called")
+  //   this.router.navigate(['signup',"-1"]);
 
     
   
    
-  }
-  addDoctor(){
-    this.router.navigate(['doctor-signup',"-1"]);
-  }
+  // }
+  // addDoctor(){
+  //   this.router.navigate(['doctor-signup',"-1"]);
+  // }
   
 
 }

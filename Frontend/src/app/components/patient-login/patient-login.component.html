@@ -11,12 +11,12 @@
                 <div class="form-group col-md-6 col-mb-6"></div>
                 <div class="form-group col-md-5 col-mb-6">
                     <div class="form-group">
-                        <label for="patientId">Patient Id </label>
-                        <input type="number" class="form-control" formControlName="patientId" name="patientId"
-                            id="patientId">
+                        <label for="patientEmailId">Patient Email Id </label>
+                        <input type="text" class="form-control" formControlName="patientEmailId" name="patientEmailId"
+                            id="patientEmailId">
                         <div class="alert alert-danger"
-                            *ngIf="patientLoginForm.get('patientId').hasError('required') && patientLoginForm.get('patientId').dirty">
-                            Only Numeric Patient Id is required.
+                            *ngIf="patientLoginForm.get('patientEmailId').hasError('required') && patientLoginForm.get('patientEmailId').dirty">
+                            Email is required.
                         </div>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
                             id="password">
                         <div class="alert alert-danger"
                             *ngIf="patientLoginForm.get('patientPassword').hasError('required') && patientLoginForm.get('patientPassword').dirty">
-                            Only Alphabetic Password of atleast 8 characters is required.
+                            Only Alphanumeric Password of atleast 8 characters is required.
                         </div>
                     </div>
 

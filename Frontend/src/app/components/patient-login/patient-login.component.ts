@@ -26,15 +26,17 @@ export class PatientLoginComponent implements OnInit {
     this.patient = new Patient();
      this.patientLoginForm=this.formBuilder.group({
 
-      patientId:['', [Validators.required, Validators.min(1)]],
-      patientPassword:['', [Validators.required, Validators.minLength(8),Validators.pattern('[a-zA-Z ]*')]],
+      patientEmailId:['', [Validators.required, Validators.pattern('[A-Za-z0-9._%-]+@[A-Za-z0-9._%-]+\\.[a-z]{2,3}')]],
+      patientPassword:['', [Validators.required, Validators.minLength(8),Validators.pattern('[a-zA-Z0-9]*')]],
      })
   }
 
   validatePatient(){
    this.patientId=this.patientLoginForm.get('patientId').value;
    this.patientPassword= this.patientLoginForm.get('patientPassword').value;
-   this.patientService.validatePatient(this.patientId,this.patientPassword)
+   this.patient.patientEmailId = this.patientLoginForm.get('patientEmailId').value;
+   this.patient.patientPassword = this.patientLoginForm.get('patientPassword').value;
+   this.patientService.validatePatient(this.patient)
    .subscribe(
      response => {
        console.log(response);

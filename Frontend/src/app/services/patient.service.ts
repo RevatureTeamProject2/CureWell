@@ -26,7 +26,7 @@ export class PatientService {
   constructor(public http:HttpClient) { }
 
   getPatients() :Observable<Patient[]>{
-    return this.http.get<Patient []>(patientUrl)
+    return this.http.get<Patient []>(patientUrl + "/getall")
     .pipe(
       retry(1),
       catchError(this.errorHandler)
@@ -50,7 +50,7 @@ export class PatientService {
   }
 
   savePatient(patient:Patient):Observable<Patient>{
-    return this.http.post<Patient>(patientUrl, patient ,this.httpOptions)
+    return this.http.post<Patient>(patientUrl + "/add", patient ,this.httpOptions)
     .pipe(
       retry(1),
       catchError(this.errorHandler)
@@ -67,8 +67,9 @@ export class PatientService {
   }
 
 
-  validatePatient(patientId:number,patientPassword:string){
-    return this.http.get(`${patientUrl}/${patientId}/${patientPassword}`)
+  validatePatient(patient:Patient){
+    // return this.http.get(`${patientUrl}/${patientId}/${patientPassword}`)
+    return this.http.post(patientUrl+"/login", patient, this.httpOptions )
     .pipe(
       retry(1),
       catchError(this.errorHandler)

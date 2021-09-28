@@ -22,7 +22,8 @@ import com.curewell.model.Appointment;
 import com.curewell.service.AppointmentService;
 
 @RestController
-@RequestMapping("/appointment")
+@RequestMapping("appointment")
+@CrossOrigin(origins = "http://localhost:4200")
 public class AppointmentController {
 	
 	@Autowired
