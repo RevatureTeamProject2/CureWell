@@ -23,9 +23,11 @@ public class Patient {
 	private String patientName;
 	private String patientContact;	
 	private String patientAddress;	
+	@Column(nullable = false)
 	private String patientGender;	
 	private int patientAge;
 	private String patientGaurdian;	
-	private String guardianContact;	
+	private String guardianContact;
+	@Column(nullable = false)
 	private String patientPassword;
 }

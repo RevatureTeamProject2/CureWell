@@ -4,10 +4,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.curewell.model.Patient;
 
 public interface PatientRepository extends JpaRepository<Patient, Integer>{
-	public Patient findPatientByPatientName(String patientName);
-	public Patient findPatientByPatientId(int patientId);
-	public Patient findPatientByPatientEmailIdAndPatientPassword(String patientEmailId,String patientPassword);
-	public Patient findPatientByPatientAge(int patientAge);
-	public Patient findPatientByPatientEmailId(String patientEmailId);
-	public Patient findPatientBypatientContact(String patientContact);
+	Patient findPatientByPatientName(String patientName);
+	Patient findPatientByPatientId(int patientId);
+	Patient findPatientByPatientEmailIdAndPatientPassword(String patientEmailId,String patientPassword);
+	Patient findPatientByPatientAge(int patientAge);
+	Patient findPatientByPatientEmailId(String patientEmailId);
+	Patient findPatientBypatientContact(String patientContact);
 }

@@ -9,16 +9,16 @@ import com.curewell.model.Appointment;
   
   //crud
   
-  public boolean addAppointment(Appointment appointment); 
-  public boolean deleteAppointment(int appointmentId);
-  public boolean updateAppointment(Appointment appointment);
-  public boolean isAppointmentExists(int appointmentId);
+  boolean addAppointment(Appointment appointment); 
+  boolean deleteAppointment(int appointmentId);
+  boolean updateAppointment(Appointment appointment);
+  boolean isAppointmentExists(int appointmentId);
 
   //appointment functionalities 
   
-  public List<Appointment> getAllAppointments();
+  List<Appointment> getAllAppointments();
  
-  public List<Appointment> getAppointmentForDay(String date); 
+  List<Appointment> getAppointmentForDay(String date); 
   //public Map<String, Appointment>getAppointmentsForDay(Date day);
   
   

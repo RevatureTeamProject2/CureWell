@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.curewell.model.Appointment;
 
 public interface AppointmentRepository extends JpaRepository<Appointment, Integer> {
-	public List<Appointment>findByDate(String date);
+	List<Appointment>findByDate(String date);
 }

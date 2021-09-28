@@ -19,7 +19,9 @@ public class Doctor {
 	private int doctorId;
 	@Column(nullable = false,unique = true)
 	private String doctorEmailId;
+	@Column(nullable = false)
 	private long contactNo;
+	@Column(nullable = false)
 	private String doctorName;
 	private String doctorSpecialisation;
 	@Column(nullable = false)

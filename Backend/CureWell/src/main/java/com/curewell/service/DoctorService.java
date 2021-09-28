@@ -5,13 +5,13 @@ import org.springframework.stereotype.Service;
 import com.curewell.model.Doctor;
 
 public interface DoctorService {
-	public boolean addDoctor(Doctor doctor);
-	public boolean deleteDoctor(int doctorId);
-	public boolean updateDoctor(Doctor doctor);
-	public Doctor getDoctorById(int doctorId);
-	public List<Doctor> getDoctorByDoctorName(String doctorName);
-	public List<Doctor> getDoctorSpecialisation(String doctorSpecialisation);
-	public List<Doctor> getAllDoctors();
-	public boolean isDoctorExists();
-	public Doctor findDoctorFromEmailIdAndPassword(String emailId,String doctorPassword);
+	boolean addDoctor(Doctor doctor);
+	boolean deleteDoctor(int doctorId);
+	boolean updateDoctor(Doctor doctor);
+	Doctor getDoctorById(int doctorId);
+	List<Doctor> getDoctorByDoctorName(String doctorName);
+	List<Doctor> getDoctorSpecialisation(String doctorSpecialisation);
+	List<Doctor> getAllDoctors();
+	boolean isDoctorExists();
+	Doctor findDoctorFromEmailIdAndPassword(String emailId,String doctorPassword);
 }
