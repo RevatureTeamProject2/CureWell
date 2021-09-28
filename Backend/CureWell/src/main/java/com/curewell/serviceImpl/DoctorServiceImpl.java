@@ -16,7 +16,11 @@ public class DoctorServiceImpl implements DoctorService {
 	@Override
 	public boolean addDoctor(Doctor doctor) {
 		// System.out.println("---add doctor - Service ---");
-		doctorRepository.save(doctor);
+		Doctor doctor2=null;
+		doctor2=doctorRepository.save(doctor);
+		if(doctor2==null) {
+			return false;
+		}
 		return true;
 	}
 
@@ -30,7 +34,11 @@ public class DoctorServiceImpl implements DoctorService {
 	@Override
 	public boolean updateDoctor(Doctor doctor) {
 		// System.out.println("----- update doctor called -Service");
-		doctorRepository.save(doctor);
+		Doctor doctor2=null;
+		doctor2=doctorRepository.save(doctor);
+		if(doctor2==null) {
+			return false;
+		}
 		return true;
 	}
 
@@ -38,21 +46,32 @@ public class DoctorServiceImpl implements DoctorService {
 	public Doctor getDoctorById(int doctorId) {
 
 		// System.out.println("----- doctor by id called -Service");
-		Doctor doctorData = doctorRepository.findDoctorByDoctorId(doctorId);
-		// Doctor doctor = doctorData.get();
-		return doctorData;
-
+		Doctor doctor2=null;
+		doctor2=doctorRepository.findDoctorByDoctorId(doctorId);
+		return doctor2;
 	}
 
 	@Override
 	public List<Doctor> getDoctorByDoctorName(String doctorName) {
 
-		return doctorRepository.findDoctorByDoctorName(doctorName);
+		List<Doctor> doctors=null;
+		doctors=doctorRepository.findDoctorByDoctorName(doctorName);
+		if(doctors.size()==0)
+		{
+			return null;
+		}
+		return doctors;
 	}
 
 	@Override
 	public List<Doctor> getAllDoctors() {
-		return (List<Doctor>) doctorRepository.findAll();
+		List<Doctor> doctors=null;
+		doctors=doctorRepository.findAll();
+		if(doctors.size()==0)
+		{
+			return null;
+		}
+		return doctors;
 	}
 
 	@Override
@@ -73,7 +92,8 @@ public class DoctorServiceImpl implements DoctorService {
 
 	@Override
 	public Doctor findDoctorFromEmailIdAndPassword(String emailId, String doctorPassword) {
-		Doctor doctor = doctorRepository.findDoctorByDoctorEmailIdAndDoctorPassword(emailId, doctorPassword);
+		Doctor doctor = null;
+		doctor=doctorRepository.findDoctorByDoctorEmailIdAndDoctorPassword(emailId, doctorPassword);
 		return doctor;
 	}
 }

@@ -16,8 +16,12 @@ public class AppointmentServiceImpl implements AppointmentService {
 	@Override
 	public boolean addAppointment(Appointment appointment) {
 	//System.out.println("----add appointment-------");
-	appointmentRepository.save(appointment);
+	Appointment appointment2=null;
+	appointment2=appointmentRepository.save(appointment);
+	if(appointment2!=null) {
 		return true;
+	}
+	return false;
 	}
 
 	@Override
@@ -31,22 +35,32 @@ public class AppointmentServiceImpl implements AppointmentService {
 	@Override
 	public boolean updateAppointment(Appointment appointment) {
 		//System.out.println("----- update appointment called -Service");
-		appointmentRepository.save(appointment);
-		return true;
+		Appointment appointment2=null;
+		appointment2=appointmentRepository.save(appointment);
+		if(appointment2!=null) {
+			return true;
+		}
+		return false;
 	}
 
 	
 	@Override public List<Appointment> getAllAppointments()
 	{
-	  return(List<Appointment>)appointmentRepository.findAll();
-	 }
+		List<Appointment> appointments=null;
+		appointments=appointmentRepository.findAll();
+		if(appointments.size()==0)
+		{
+			return null;
+		}
+		return appointments;
+	}
 
 	
 	@Override
 	public boolean isAppointmentExists(int appointmentId) {
 
-		Optional<Appointment> patientData = appointmentRepository.findById(appointmentId);
-		return patientData.isPresent();
+		Optional<Appointment> appointmentdata = appointmentRepository.findById(appointmentId);
+		return appointmentdata.isPresent();
 	}
 	
 
@@ -55,6 +69,10 @@ public class AppointmentServiceImpl implements AppointmentService {
 		
 		List<Appointment> listAppointment=null;
 		listAppointment=appointmentRepository.findByDate(date);
+		if(listAppointment.size()==0)
+		{
+			return null;
+		}
 		return listAppointment;
 	}
 	  

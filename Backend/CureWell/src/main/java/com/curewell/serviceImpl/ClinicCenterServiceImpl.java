@@ -11,15 +11,20 @@ import com.curewell.service.ClinicCenterService;
 
 @Service
 public class ClinicCenterServiceImpl implements ClinicCenterService{
-	
+
 	@Autowired
 	ClinicCenterRepository clinicCenterRepository;
-	
+
 	@Override
 	public boolean addClinicCenter(ClinicCenter clinicCenter) {
-		clinicCenterRepository.save(clinicCenter);
+		ClinicCenter clinicCenter2=null;
+		clinicCenter2=clinicCenterRepository.save(clinicCenter);
+		if(clinicCenter2==null)
+		{
+			return false;
+		}
 		return true;
-		
+
 	}
 
 	@Override
@@ -30,34 +35,56 @@ public class ClinicCenterServiceImpl implements ClinicCenterService{
 
 	@Override
 	public boolean updateClinicCenter(ClinicCenter clinicCenter) {
-		clinicCenterRepository.save(clinicCenter);
+		ClinicCenter clinicCenter2=null;
+		clinicCenter2=clinicCenterRepository.save(clinicCenter);
+		if(clinicCenter2==null)
+		{
+			return false;
+		}
 		return true;
 	}
 
 
 	@Override
 	public List<ClinicCenter> getAllClinicCenters() {
-		return (List<ClinicCenter>) clinicCenterRepository.findAll();
+		List<ClinicCenter> clinicCenters=null;
+		clinicCenters=clinicCenterRepository.findAll();
+		if(clinicCenters.size()==0) {
+			return null;
+		}
+		return clinicCenters;
 	}
 
 	@Override
 	public ClinicCenter getClinicCenterById(int id) {
-		ClinicCenter clinicCenter = clinicCenterRepository.findById(id);
-		//ClinicCenter clinicCenter = ClinicCenterData.get();
+		ClinicCenter clinicCenter =null;
+		clinicCenter=clinicCenterRepository.findById(id);
+		if(clinicCenter==null)
+		{
+			return null;
+		}
 		return clinicCenter;
 	}
 
 	@Override
 	public List<ClinicCenter> getClinicCenterByName(String name) {
-		
-		return clinicCenterRepository.findByName(name);
+		List<ClinicCenter> clinicCenters=null;
+		clinicCenters=clinicCenterRepository.findByName(name);
+		if(clinicCenters.size()==0) {
+			return null;
+		}
+		return clinicCenters;
 	}
 
 	@Override
 	public List<ClinicCenter> getClinicCenterByCity(String city) {
-		return clinicCenterRepository.findByCity(city);
-		
+		List<ClinicCenter> clinicCenters=null;
+		clinicCenters= clinicCenterRepository.findByCity(city);
+		if(clinicCenters.size()==0) {
+			return null;
+		}
+		return clinicCenters;
 	}
-	
+
 
 }

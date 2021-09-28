@@ -17,7 +17,12 @@ public class PatientServiceImpl implements  PatientService {
 	
 	@Override
 	public boolean addPatient(Patient patient) {
-		patientRepository.save(patient);
+		Patient patient2=null;
+		patient2=patientRepository.save(patient);
+		if(patient2==null)
+		{
+			return false;
+		}
 		return true;
 	}
 
@@ -30,28 +35,40 @@ public class PatientServiceImpl implements  PatientService {
 
 	@Override
 	public boolean updatePatient(Patient patient) {
-		//System.out.println("---Update Patient---");
-		patientRepository.save(patient);
+		Patient patient2=null;
+		patient2=patientRepository.save(patient);
+		if(patient2==null)
+		{
+			return false;
+		}
 		return true;
 	}
 
 	@Override
 	public Patient getPatientByPatientId(int patientId) {
-		//System.out.println("----- patient by id called -Service");
-		Patient patient = patientRepository.findPatientByPatientId(patientId);
-		//Patient patient =patientData.get();
+		Patient patient = null;
+		patient=patientRepository.findPatientByPatientId(patientId);
 		return patient;
 	}
 	
 	@Override
 	public List<Patient> getPatientByPatientName(String patientName){
-		return (List<Patient>) patientRepository.findPatientByPatientName(patientName);
-
+		List<Patient> patients= patientRepository.findPatientByPatientName(patientName);
+		if(patients.size()==0)
+		{
+			return null;
+		}
+		return patients;
 	}
 	
 	@Override
 	public List<Patient> getAllPatient() {
-		return (List<Patient>) patientRepository.findAll();
+		List<Patient> patients= patientRepository.findAll();
+		if(patients.size()==0)
+		{
+			return null;
+		}
+		return patients;
 	}
 
 	@Override
@@ -72,12 +89,16 @@ public class PatientServiceImpl implements  PatientService {
 
 	@Override
 	public Patient getPatientByPatientEmailId(String patientEmailId) {
-		return patientRepository.findPatientByPatientEmailId(patientEmailId);
+		Patient patient= null;
+		patient=patientRepository.findPatientByPatientEmailId(patientEmailId);
+		return patient;
 	}
 
 	@Override
 	public Patient getPatientByPatientContact(String patientContact) {
-		return patientRepository.findPatientBypatientContact(patientContact);
+		Patient patient= null;
+		patient= patientRepository.findPatientBypatientContact(patientContact);
+		return patient;
 	}
 
 	
