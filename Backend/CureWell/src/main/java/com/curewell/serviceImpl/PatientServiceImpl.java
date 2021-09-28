@@ -16,7 +16,7 @@ public class PatientServiceImpl implements  PatientService {
 	PatientRepository patientRepository;
 	
 	@Override
-	public boolean addPatient(Patient patient) {
+	public boolean addPatient(Patient patient)  throws Exception{
 		Patient patient2=null;
 		patient2=patientRepository.save(patient);
 		if(patient2==null)
@@ -27,14 +27,14 @@ public class PatientServiceImpl implements  PatientService {
 	}
 
 	@Override
-	public boolean deletePatientByPatientId(int patientId) {
+	public boolean deletePatientByPatientId(int patientId)  throws Exception{
 		//System.out.println("---delete Patient---");
 		patientRepository.deleteById(patientId);
 		return true;
 	}
 
 	@Override
-	public boolean updatePatient(Patient patient) {
+	public boolean updatePatient(Patient patient) throws Exception {
 		Patient patient2=null;
 		patient2=patientRepository.save(patient);
 		if(patient2==null)
@@ -45,14 +45,14 @@ public class PatientServiceImpl implements  PatientService {
 	}
 
 	@Override
-	public Patient getPatientByPatientId(int patientId) {
+	public Patient getPatientByPatientId(int patientId) throws Exception {
 		Patient patient = null;
 		patient=patientRepository.findPatientByPatientId(patientId);
 		return patient;
 	}
 	
 	@Override
-	public List<Patient> getPatientByPatientName(String patientName){
+	public List<Patient> getPatientByPatientName(String patientName) throws Exception{
 		List<Patient> patients= patientRepository.findPatientByPatientName(patientName);
 		if(patients.size()==0)
 		{
@@ -62,7 +62,7 @@ public class PatientServiceImpl implements  PatientService {
 	}
 	
 	@Override
-	public List<Patient> getAllPatient() {
+	public List<Patient> getAllPatient() throws Exception {
 		List<Patient> patients= patientRepository.findAll();
 		if(patients.size()==0)
 		{
@@ -72,7 +72,7 @@ public class PatientServiceImpl implements  PatientService {
 	}
 
 	@Override
-	public boolean isPatientExists(int patientId) {
+	public boolean isPatientExists(int patientId)  throws Exception{
 		Patient patientData = patientRepository.findPatientByPatientId(patientId);
 		if(patientData!=null) {
 			return true;
@@ -81,21 +81,21 @@ public class PatientServiceImpl implements  PatientService {
 	}
 
 	@Override
-	public Patient findPatientByPatientEmailIdAndPatientPassword(String emailId,String patientPassword) {
+	public Patient findPatientByPatientEmailIdAndPatientPassword(String emailId,String patientPassword) throws Exception {
 		Patient patient= null;
 		patient=patientRepository.findPatientByPatientEmailIdAndPatientPassword(emailId, patientPassword);
 		return patient;
 	}
 
 	@Override
-	public Patient getPatientByPatientEmailId(String patientEmailId) {
+	public Patient getPatientByPatientEmailId(String patientEmailId) throws Exception {
 		Patient patient= null;
 		patient=patientRepository.findPatientByPatientEmailId(patientEmailId);
 		return patient;
 	}
 
 	@Override
-	public Patient getPatientByPatientContact(long patientContact) {
+	public Patient getPatientByPatientContact(long patientContact) throws Exception {
 		Patient patient= null;
 		patient= patientRepository.findPatientBypatientContact(patientContact);
 		return patient;

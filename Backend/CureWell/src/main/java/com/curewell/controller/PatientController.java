@@ -12,7 +12,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.curewell.service.DoctorService;
 import com.curewell.service.PatientService;
+import com.curewell.exception.InvalidLoginException;
+import com.curewell.exception.NoPatientFoundException;
+import com.curewell.exception.PatientAddingException;
+import com.curewell.model.Doctor;
 import com.curewell.model.Patient;
 
 @RestController
@@ -21,20 +26,30 @@ import com.curewell.model.Patient;
 public class PatientController {
 	@Autowired
 	PatientService patientService;
+	@Autowired
+	DoctorService doctorService;
 	
 	@GetMapping("/getall")
 	public List<Patient> getAllPatient() throws Exception{
 		List<Patient> listPatient=null;
 		listPatient=patientService.getAllPatient();
 		if(listPatient==null) {
-			throw new NoSuchElementException();
+			throw new NoPatientFoundException("No patient Available");
 		}
 		return listPatient;
 	}
 	
 	@PostMapping("/add")
-	public boolean addPatient(@RequestBody Patient patient) {
-		return patientService.addPatient(patient);		
+	public boolean addPatient(@RequestBody Patient patient) throws Exception{
+		boolean flag=false;
+//		Doctor doctor=doctorService.findDoctorByDoctorNameAndDoctorSpecialisation(patient.getDoctorName(), patient.getDoctorSpecialisation());
+//		patient.setDoctor(doctor);
+		flag= patientService.addPatient(patient);
+		if(flag==false)
+		{
+			throw new PatientAddingException();
+		}
+		return flag;
 	}
 	
 	@GetMapping("/getbyid/{id}")
@@ -59,7 +74,7 @@ public class PatientController {
 	}
 	
 	@GetMapping("/getbycontact/{contactNumber}")
-	public Patient getPatientrByContactNumber(@PathVariable long contactNumber) throws Exception {
+	public Patient getPatientrByContactNumber(@PathVariable long contactNumber) throws Exception{
 		Patient patient=null;
 		patient= patientService.getPatientByPatientContact(contactNumber);
 		if(patient==null) {
@@ -74,7 +89,7 @@ public class PatientController {
 		Patient patientr=null;
 		patientr= patientService.findPatientByPatientEmailIdAndPatientPassword(patient.getPatientEmailId(), patient.getPatientPassword());
 		if(patientr==null) {
-			throw new NoSuchElementException();
+			throw new InvalidLoginException("EmailID and Password is not valid.");
 		}
 		return patientr;
 	}

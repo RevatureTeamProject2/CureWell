@@ -16,7 +16,7 @@ public class ClinicCenterServiceImpl implements ClinicCenterService{
 	ClinicCenterRepository clinicCenterRepository;
 
 	@Override
-	public boolean addClinicCenter(ClinicCenter clinicCenter) {
+	public boolean addClinicCenter(ClinicCenter clinicCenter)  throws Exception{
 		ClinicCenter clinicCenter2=null;
 		clinicCenter2=clinicCenterRepository.save(clinicCenter);
 		if(clinicCenter2==null)
@@ -28,13 +28,13 @@ public class ClinicCenterServiceImpl implements ClinicCenterService{
 	}
 
 	@Override
-	public boolean deleteClinicCenter(int id) {
+	public boolean deleteClinicCenter(int id)  throws Exception{
 		clinicCenterRepository.deleteById(id);
 		return true;
 	}
 
 	@Override
-	public boolean updateClinicCenter(ClinicCenter clinicCenter) {
+	public boolean updateClinicCenter(ClinicCenter clinicCenter)  throws Exception{
 		ClinicCenter clinicCenter2=null;
 		clinicCenter2=clinicCenterRepository.save(clinicCenter);
 		if(clinicCenter2==null)
@@ -46,7 +46,7 @@ public class ClinicCenterServiceImpl implements ClinicCenterService{
 
 
 	@Override
-	public List<ClinicCenter> getAllClinicCenters() {
+	public List<ClinicCenter> getAllClinicCenters()  throws Exception{
 		List<ClinicCenter> clinicCenters=null;
 		clinicCenters=clinicCenterRepository.findAll();
 		if(clinicCenters.size()==0) {
@@ -56,7 +56,7 @@ public class ClinicCenterServiceImpl implements ClinicCenterService{
 	}
 
 	@Override
-	public ClinicCenter getClinicCenterById(int id) {
+	public ClinicCenter getClinicCenterById(int id)  throws Exception{
 		ClinicCenter clinicCenter =null;
 		clinicCenter=clinicCenterRepository.findById(id);
 		if(clinicCenter==null)
@@ -67,7 +67,7 @@ public class ClinicCenterServiceImpl implements ClinicCenterService{
 	}
 
 	@Override
-	public List<ClinicCenter> getClinicCenterByName(String name) {
+	public List<ClinicCenter> getClinicCenterByName(String name)  throws Exception{
 		List<ClinicCenter> clinicCenters=null;
 		clinicCenters=clinicCenterRepository.findByName(name);
 		if(clinicCenters.size()==0) {
@@ -77,7 +77,7 @@ public class ClinicCenterServiceImpl implements ClinicCenterService{
 	}
 
 	@Override
-	public List<ClinicCenter> getClinicCenterByCity(String city) {
+	public List<ClinicCenter> getClinicCenterByCity(String city)  throws Exception{
 		List<ClinicCenter> clinicCenters=null;
 		clinicCenters= clinicCenterRepository.findByCity(city);
 		if(clinicCenters.size()==0) {

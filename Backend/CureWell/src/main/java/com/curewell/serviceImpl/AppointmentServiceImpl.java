@@ -14,7 +14,7 @@ public class AppointmentServiceImpl implements AppointmentService {
 	AppointmentRepository appointmentRepository;
 	  
 	@Override
-	public boolean addAppointment(Appointment appointment) {
+	public boolean addAppointment(Appointment appointment) throws Exception{
 	//System.out.println("----add appointment-------");
 	Appointment appointment2=null;
 	appointment2=appointmentRepository.save(appointment);
@@ -25,16 +25,14 @@ public class AppointmentServiceImpl implements AppointmentService {
 	}
 
 	@Override
-	public boolean deleteAppointment(int appointmentId) {
-		//System.out.println("--- delete appointment called - Service");
+	public boolean deleteAppointment(int appointmentId) throws Exception{
 		appointmentRepository.deleteById(appointmentId);
 		return true;
 		
 	}
 
 	@Override
-	public boolean updateAppointment(Appointment appointment) {
-		//System.out.println("----- update appointment called -Service");
+	public boolean updateAppointment(Appointment appointment) throws Exception{
 		Appointment appointment2=null;
 		appointment2=appointmentRepository.save(appointment);
 		if(appointment2!=null) {
@@ -44,7 +42,7 @@ public class AppointmentServiceImpl implements AppointmentService {
 	}
 
 	
-	@Override public List<Appointment> getAllAppointments()
+	@Override public List<Appointment> getAllAppointments() throws Exception
 	{
 		List<Appointment> appointments=null;
 		appointments=appointmentRepository.findAll();
@@ -57,10 +55,11 @@ public class AppointmentServiceImpl implements AppointmentService {
 
 	
 	@Override
-	public boolean isAppointmentExists(int appointmentId) {
-
-		Optional<Appointment> appointmentdata = appointmentRepository.findById(appointmentId);
-		return appointmentdata.isPresent();
+	public boolean isAppointmentExists() throws Exception{
+		if(appointmentRepository.findAll().size()==0) {
+			return true;
+		}
+		return false;
 	}
 	
 

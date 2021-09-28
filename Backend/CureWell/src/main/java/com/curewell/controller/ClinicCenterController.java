@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.curewell.exception.ClinicAddingException;
+import com.curewell.exception.NoClinicCenterFoundException;
 import com.curewell.model.ClinicCenter;
 import com.curewell.service.ClinicCenterService;
 
@@ -22,13 +25,18 @@ public class ClinicCenterController {
 	ClinicCenterService clinicCenterService;
 
 	@PostMapping("/add")
-	public boolean addClinicCenter(@RequestBody ClinicCenter clinicCenter) {
-		clinicCenterService.addClinicCenter(clinicCenter);
+	public boolean addClinicCenter(@RequestBody ClinicCenter clinicCenter)  throws Exception {
+		boolean flag=false;
+		flag=clinicCenterService.addClinicCenter(clinicCenter);
+		if(flag==false)
+		{
+			throw new ClinicAddingException();
+		}
 		return true;
 	}
 
 	@DeleteMapping("/deletebyid/{id}")
-	public boolean deleteClinicCenter(@PathVariable int id) throws Exception{
+	public boolean deleteClinicCenter(@PathVariable int id)  throws Exception{
 		if(clinicCenterService.getClinicCenterById(id)==null)
 		{
 			throw new NoSuchElementException();
@@ -38,7 +46,7 @@ public class ClinicCenterController {
 	}
 
 	@PutMapping("/updatebyid/{id}")
-	public boolean updateClinicCenter(@RequestBody ClinicCenter clinicCenter) throws Exception{
+	public boolean updateClinicCenter(@RequestBody ClinicCenter clinicCenter)  throws Exception{
 		if(clinicCenterService.getClinicCenterById(clinicCenter.getId())==null)
 		{
 			throw new NoSuchElementException();
@@ -48,18 +56,18 @@ public class ClinicCenterController {
 	}
 
 	@GetMapping("/getall")
-	public List<ClinicCenter> getAllClinicCenters() throws Exception{
+	public List<ClinicCenter> getAllClinicCenters()  throws Exception{
 		List<ClinicCenter> clinicCenterList=null;
 		clinicCenterList = clinicCenterService.getAllClinicCenters();
 		if(clinicCenterList.size()==0)
 		{
-			//logging
+			throw new NoClinicCenterFoundException();
 		}
 	    return clinicCenterList;
 	}
 
 	@GetMapping("/getbyid/{id}")
-	public ClinicCenter getClinicCenterById(@PathVariable int id) throws Exception{
+	public ClinicCenter getClinicCenterById(@PathVariable int id)  throws Exception{
 		if(clinicCenterService.getClinicCenterById(id)==null)
 		{
 			throw new NoSuchElementException();
@@ -68,7 +76,7 @@ public class ClinicCenterController {
 	}
 
 	@GetMapping("/getbyname/{name}")
-	public List<ClinicCenter> getClinicCenterByName(@PathVariable String name) throws Exception{
+	public List<ClinicCenter> getClinicCenterByName(@PathVariable String name)  throws Exception{
 		if(clinicCenterService.getClinicCenterByName(name)==null)
 		{
 			throw new NoSuchElementException();
@@ -77,7 +85,7 @@ public class ClinicCenterController {
 	}
 
 	@GetMapping("/getbycity/{city}")
-	public List<ClinicCenter> getClinicCenterByCity(@PathVariable String city) throws Exception{
+	public List<ClinicCenter> getClinicCenterByCity(@PathVariable String city) throws Exception {
 		if(clinicCenterService.getClinicCenterByCity(city)==null)
 		{
 			throw new NoSuchElementException();

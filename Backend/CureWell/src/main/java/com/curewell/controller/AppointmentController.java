@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.curewell.exception.AppointmentBookingException;
+import com.curewell.exception.InvaliInputException;
+import com.curewell.exception.NoAppointmentFoundException;
 import com.curewell.model.Appointment;
 import com.curewell.service.AppointmentService;
 
@@ -26,13 +29,17 @@ public class AppointmentController {
 	AppointmentService appointmentService;
 	
 	@PostMapping("/add")
-	public boolean addAppointment(@RequestBody Appointment appointment) {
-		
-		return appointmentService.addAppointment(appointment);
+	public boolean addAppointment(@RequestBody Appointment appointment) throws Exception{
+		boolean flag= appointmentService.addAppointment(appointment);
+		if(flag==false)
+		{
+			throw new AppointmentBookingException();
+		}
+		return flag;
 	}
 	
 	@DeleteMapping("/deletebyid/{appointmentId}")
-	public boolean deleteAppointment(@PathVariable int appointmentId) throws Exception {
+	public boolean deleteAppointment(@PathVariable int appointmentId) throws Exception{
 		boolean flag= appointmentService.deleteAppointment(appointmentId);
 		if(flag==false) {
 			throw new NoSuchElementException();
@@ -41,8 +48,13 @@ public class AppointmentController {
 	}
 	
 	@PutMapping("/update")
-	public boolean updateAppointment(@RequestBody Appointment appointment) {
-		return appointmentService.updateAppointment(appointment);
+	public boolean updateAppointment(@RequestBody Appointment appointment) throws Exception{
+		boolean flag=  appointmentService.updateAppointment(appointment);
+		if(flag==false)
+		{
+			throw new InvaliInputException();
+		}
+		return flag;
 	}
 	
 	
@@ -53,7 +65,7 @@ public class AppointmentController {
 		appointmentList = appointmentService.getAllAppointments();
 		if(appointmentList==null)
 		{
-			throw new NoSuchElementException();
+			throw new NoAppointmentFoundException();
 		}
 		return appointmentList;
 	}
