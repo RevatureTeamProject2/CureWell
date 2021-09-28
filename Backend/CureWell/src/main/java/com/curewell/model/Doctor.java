@@ -8,8 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.sun.istack.NotNull;
-
 import lombok.Data;
 
 @Data
@@ -21,12 +19,10 @@ public class Doctor {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int doctorId;
 	@Column(unique = true)
-	@NotNull
 	private String doctorEmailId;
 	private long contactNo;
 	private String doctorName;
 	private String doctorSpecialisation;
-	@NotNull
 	private String doctorPassword;
 	private String city;
 }

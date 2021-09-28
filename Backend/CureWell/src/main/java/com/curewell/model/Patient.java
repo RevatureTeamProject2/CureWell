@@ -31,6 +31,4 @@ public class Patient {
 	private String patientGuardian;	
 	private long guardianContact;
 	private String patientPassword;
-	private String doctorName;
-	private String doctorSpecialisation;
 }

@@ -14,7 +14,7 @@ public class DoctorServiceImpl implements DoctorService {
 	DoctorRepository doctorRepository;
 
 	@Override
-	public boolean addDoctor(Doctor doctor) {
+	public boolean addDoctor(Doctor doctor)  throws Exception{
 		// System.out.println("---add doctor - Service ---");
 		Doctor doctor2=null;
 		doctor2=doctorRepository.save(doctor);
@@ -25,14 +25,14 @@ public class DoctorServiceImpl implements DoctorService {
 	}
 
 	@Override
-	public boolean deleteDoctor(int doctorId) {
+	public boolean deleteDoctor(int doctorId)  throws Exception {
 		// System.out.println("---delete doctor service ---");
 		doctorRepository.deleteById(doctorId);
 		return true;
 	}
 
 	@Override
-	public boolean updateDoctor(Doctor doctor) {
+	public boolean updateDoctor(Doctor doctor) throws Exception{
 		// System.out.println("----- update doctor called -Service");
 		Doctor doctor2=null;
 		doctor2=doctorRepository.save(doctor);
@@ -43,7 +43,7 @@ public class DoctorServiceImpl implements DoctorService {
 	}
 
 	@Override
-	public Doctor getDoctorById(int doctorId) {
+	public Doctor getDoctorById(int doctorId) throws Exception {
 
 		// System.out.println("----- doctor by id called -Service");
 		Doctor doctor2=null;
@@ -52,7 +52,7 @@ public class DoctorServiceImpl implements DoctorService {
 	}
 
 	@Override
-	public List<Doctor> getDoctorByDoctorName(String doctorName) {
+	public List<Doctor> getDoctorByDoctorName(String doctorName) throws Exception {
 
 		List<Doctor> doctors=null;
 		doctors=doctorRepository.findDoctorByDoctorName(doctorName);
@@ -64,7 +64,7 @@ public class DoctorServiceImpl implements DoctorService {
 	}
 
 	@Override
-	public List<Doctor> getAllDoctors() {
+	public List<Doctor> getAllDoctors() throws Exception {
 		List<Doctor> doctors=null;
 		doctors=doctorRepository.findAll();
 		if(doctors.size()==0)
@@ -75,7 +75,7 @@ public class DoctorServiceImpl implements DoctorService {
 	}
 
 	@Override
-	public boolean isDoctorExists() {
+	public boolean isDoctorExists() throws Exception {
 		List<Doctor> doctorData = doctorRepository.findAll();
 		if (doctorData.size() != 0) {
 			return true;
@@ -85,20 +85,20 @@ public class DoctorServiceImpl implements DoctorService {
 	}
 
 	@Override
-	public List<Doctor> getDoctorSpecialisation(String doctorSpecialisation) {
+	public List<Doctor> getDoctorSpecialisation(String doctorSpecialisation) throws Exception {
 
 		return doctorRepository.findDoctorByDoctorSpecialisation(doctorSpecialisation);
 	}
 
 	@Override
-	public Doctor findDoctorFromEmailIdAndPassword(String emailId, String doctorPassword) {
+	public Doctor findDoctorFromEmailIdAndPassword(String emailId, String doctorPassword) throws Exception {
 		Doctor doctor = null;
 		doctor=doctorRepository.findDoctorByDoctorEmailIdAndDoctorPassword(emailId, doctorPassword);
 		return doctor;
 	}
 
 	@Override
-	public Doctor findDoctorByDoctorNameAndDoctorSpecialisation(String doctorName, String doctorSpecialisation) {
+	public Doctor findDoctorByDoctorNameAndDoctorSpecialisation(String doctorName, String doctorSpecialisation) throws Exception {
 		Doctor doctor = null;
 		doctor=doctorRepository.findDoctorByDoctorNameAndDoctorSpecialisation(doctorName, doctorSpecialisation);
 		return doctor;
