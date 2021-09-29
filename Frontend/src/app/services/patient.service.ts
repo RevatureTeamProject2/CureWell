@@ -69,7 +69,7 @@ export class PatientService {
 
   validatePatient(patient:Patient){
     // return this.http.get(`${patientUrl}/${patientId}/${patientPassword}`)
-    return this.http.post(patientUrl+"/login", patient, this.httpOptions )
+    return this.http.post<Patient>(patientUrl+"/login", patient, this.httpOptions )
     .pipe(
       retry(1),
       catchError(this.errorHandler)

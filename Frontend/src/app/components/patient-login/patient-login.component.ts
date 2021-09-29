@@ -32,8 +32,8 @@ export class PatientLoginComponent implements OnInit {
   }
 
   validatePatient(){
-   this.patientId=this.patientLoginForm.get('patientId').value;
-   this.patientPassword= this.patientLoginForm.get('patientPassword').value;
+  //  this.patientId=this.patientLoginForm.get('patientId').value;
+  //  this.patientPassword= this.patientLoginForm.get('patientPassword').value;
    this.patient.patientEmailId = this.patientLoginForm.get('patientEmailId').value;
    this.patient.patientPassword = this.patientLoginForm.get('patientPassword').value;
    this.patientService.validatePatient(this.patient)
@@ -41,6 +41,8 @@ export class PatientLoginComponent implements OnInit {
      response => {
        console.log(response);
        if(response!=null){
+        this.router.navigate(['patient-login-success'])
+
         
        }
        else{

@@ -14,12 +14,13 @@ export class BookAppointmentComponent implements OnInit {
   AppointmentForm?:FormGroup;
   
   message?:string;
+  err?:string;
 
   constructor(public appointmentService:BookAppointmentService,public router:Router ,public activatedRoute: ActivatedRoute,public formBuilder:FormBuilder){}
 
   ngOnInit(): void {      
       this.AppointmentForm=this.formBuilder.group({
-      appointmentId:['', [Validators.required, Validators.min(1)]],     
+      // appointmentId:['', [Validators.required, Validators.min(1)]],     
       patientName:['',[Validators.required, Validators.minLength(3)]],    
       reasonToVisit:['',[Validators.required]],
       date:['',[Validators.required]],
@@ -39,7 +40,10 @@ export class BookAppointmentComponent implements OnInit {
           response => {
             console.log(response);
             if(response!=null){
-        
+              console.log("Booking Successful!");
+              this.message="Booked Successfully!";
+              this.err="";
+              this.router.navigate(['book-appointment']);
             }
             else{
               
@@ -51,7 +55,8 @@ export class BookAppointmentComponent implements OnInit {
           error => {
            
             console.log(error);
-            this.message="Booked Successfully";
+            this.message="";
+            this.err="Some Error Occurred. Please try later!";
             this.router.navigate(['book-appointment'])
             
            

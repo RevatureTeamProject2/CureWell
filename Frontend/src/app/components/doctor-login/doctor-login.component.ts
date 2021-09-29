@@ -16,6 +16,7 @@ export class DoctorLoginComponent implements OnInit {
 
   doctor?:Doctor;
   doctorId?: number;
+  doctorEmailId?: string;
   doctorPassword?:string;
   doctorLoginForm?:FormGroup;
   errorMessage?:string;
@@ -28,25 +29,26 @@ export class DoctorLoginComponent implements OnInit {
     this.doctor = new Doctor();
      this.doctorLoginForm=this.formBuilder.group({
 
-      doctorId:['', [Validators.required, Validators.min(1)]],
-      doctorPassword:['', [Validators.required]],
+      doctorEmailId:['', [Validators.required, Validators.pattern('[A-Za-z0-9._%-]+@[A-Za-z0-9._%-]+\\.[a-z]{2,3}')]],
+      doctorPassword:['', [Validators.required, Validators.minLength(8)]],
      
     })
   }
 
   validateDoctor(){
 
-    this.doctorId=this.doctorLoginForm.get('doctorId').value;
-    this.doctorPassword= this.doctorLoginForm.get('doctorPassword').value;
+    this.doctor.doctorEmailId=this.doctorLoginForm.get('doctorEmailId').value;
+    this.doctor.doctorPassword= this.doctorLoginForm.get('doctorPassword').value;
 
 
 
-    this.doctorService.validateDoctor(this.doctorId,this.doctorPassword)
+    this.doctorService.validateDoctor(this.doctor)
     .subscribe(
       response => {
         console.log(response);
         if(response!=null){
-         
+          console.log("Login successful!");
+          this.router.navigate(['doctor-dashboard'])
         }
         else{
           this.errorMessage="Invalid Login Credentials";

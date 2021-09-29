@@ -34,12 +34,12 @@ public class CureWellApplicationTests {
 		assertEquals(1,patientService.getAllPatient().size());	
 		}
 	
-	@Test
-	public void getPatientByPatientEmailIdTest() throws Exception{
-		String patientEmailId="manisha@gmail.com";
-		when(patientRepository.findPatientByPatientEmailId(patientEmailId)).thenReturn(Stream.of(new Patient(10, "sai@gmail.com", "sai", 8787504123L, "Hyd", "Male", 21, "Ramu", 8798475632L, "ramu12")));
-		assertEquals(1,patientService.getPatientByPatientEmailId(patientEmailId).size());	
-		}
+//	@Test
+//	public void getPatientByPatientEmailIdTest() throws Exception{
+//		String patientEmailId="manisha@gmail.com";
+//		when(patientRepository.findPatientByPatientEmailId(patientEmailId)).thenReturn(Stream.of(new Patient(10, "sai@gmail.com", "sai", 8787504123L, "Hyd", "Male", 21, "Ramu", 8798475632L, "ramu12")));
+//		assertEquals(1,patientService.getPatientByPatientEmailId(patientEmailId).size());	
+//		}
 	
 //	@Test
 //	public void addPatientTest() throws Exception{

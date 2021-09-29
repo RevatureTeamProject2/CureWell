@@ -46,7 +46,7 @@ export class DoctorService {
   }
 
   saveDoctor(doctor:Doctor):Observable<Doctor>{
-    return this.http.post<Doctor>(doctorUrl, doctor ,this.httpOptions)
+    return this.http.post<Doctor>(doctorUrl + "/add", doctor ,this.httpOptions)
     .pipe(
       retry(1),
       catchError(this.errorHandler)
@@ -62,8 +62,8 @@ export class DoctorService {
     )
   }
 
-  validateDoctor(doctorId:number,doctorPassword:string){
-    return this.http.get(`${doctorUrl}/${doctorId}/${doctorPassword}`)
+  validateDoctor(doctor: Doctor){
+    return this.http.post<Doctor>(doctorUrl+"/login", doctor, this.httpOptions)
     .pipe(
       retry(1),
       catchError(this.errorHandler)

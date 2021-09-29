@@ -7,7 +7,7 @@
     <form [formGroup]="AppointmentForm" (ngSubmit)="saveAppointment()">
         <fieldset>
             <div class="form-group row">
-                <div class="form-group col-md-4 col-mb-5"></div>
+                <!-- <div class="form-group col-md-4 col-mb-5"></div>
                 <div class="form-group col-md-5 col-mb-6">
                     <div class="form-group">
                         <label for="appointment">Appointment Id</label>
@@ -22,7 +22,7 @@
                             Appointment Id can't be Stored
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="form-group col-md-4 col-mb-5"></div>
                 <div class="form-group col-md-5 col-mb-6">
@@ -107,7 +107,8 @@
 
 
         </fieldset>
-        <p style="color: green; text-align: center; font-weight: bold; font-size: 20px; font-style: Arial;">{{message}}</p>
+        <p style="color: green; text-align: center; font-weight: bold; font-size: 20px; font-style: 'Bell MT';">{{message}}</p>
+        <p style="color: red; text-align: center; font-weight: bold; font-size: 20px; font-style: 'Bell MT';">{{err}}</p>
         <div class="form-group row">
             <div class="form-group col-md-4 col-mb-5"></div>
             <div class="form-group col-md-5 buttons" align=center>

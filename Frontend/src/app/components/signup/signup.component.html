@@ -96,6 +96,10 @@
                             *ngIf="patientForm.get('patientGender').hasError('required') && patientForm.get('patientGender').dirty">
                             Patient Gender is required
                         </div>
+                        <div class="alert alert-danger"
+                            *ngIf="patientForm.get('patientGender').hasError('maxlength') && patientForm.get('patientGender').dirty">
+                            Please enter M or F for Male and Female respectively.
+                        </div>
                     </div>
                 </div>
 
@@ -120,17 +124,17 @@
                 <div class="form-group col-md-6 col-mb-6"></div>
                 <div class="form-group col-md-5 col-mb-6">
                     <div class="form-group">
-                        <label for="patientGuardian">Patient Gaurdian </label>
+                        <label for="patientGuardian">Patient Guardian </label>
 
                         <input type="text" class="form-control" name="patientGuardian" id="patientGuardian"
-                            formControlName="patientGaurdian">
+                            formControlName="patientGuardian">
                         <div class="alert alert-danger"
-                            *ngIf="patientForm.get('patientGaurdian').hasError('required') && patientForm.get('patientGaurdian').dirty">
-                            Patient Gaurdian name is required
+                            *ngIf="patientForm.get('patientGuardian').hasError('required') && patientForm.get('patientGuardian').dirty">
+                            Patient Guardian name is required
                         </div>
                         <div class="alert alert-danger"
-                            *ngIf="patientForm.get('patientGaurdian').hasError('minlength') && patientForm.get('patientGaurdian').dirty">
-                            Patient Gaurdian name must be of 3 characters
+                            *ngIf="patientForm.get('patientGuardian').hasError('minlength') && patientForm.get('patientGuardian').dirty">
+                            Patient Guardian name must be of 3 characters
                         </div>
                     </div>
                 </div>
@@ -138,20 +142,20 @@
                 <div class="form-group col-md-6 col-mb-6"></div>
                 <div class="form-group col-md-5 col-mb-6">
                     <div class="form-group">
-                        <label>Gaurdian Contact </label>
+                        <label>Guardian Contact </label>
 
-                        <input type="text" class="form-control" formControlName="gaurdianContact">
+                        <input type="text" class="form-control" formControlName="guardianContact">
                         <div class="alert alert-danger"
-                            *ngIf="patientForm.get('gaurdianContact').hasError('required') && patientForm.get('gaurdianContact').dirty">
-                            Gaurdian Contact is required
+                            *ngIf="patientForm.get('guardianContact').hasError('required') && patientForm.get('guardianContact').dirty">
+                            Guardian Contact is required
                         </div>
                         <div class="alert alert-danger"
-                            *ngIf="patientForm.get('gaurdianContact').hasError('minlength') && patientForm.get('gaurdianContact').dirty">
-                            Gaurdian Contact must be of 10 characters
+                            *ngIf="patientForm.get('guardianContact').hasError('minlength') && patientForm.get('guardianContact').dirty">
+                            Guardian Contact must be of 10 characters
                         </div>
                         <div class="alert alert-danger"
-                            *ngIf="patientForm.get('gaurdianContact').hasError('maxlength') && patientForm.get('gaurdianContact').dirty">
-                            Gaurdian Contact must be of 10 characters
+                            *ngIf="patientForm.get('guardianContact').hasError('maxlength') && patientForm.get('guardianContact').dirty">
+                            Guardian Contact must be of 10 characters
                         </div>
                     </div>
                 </div>
