@@ -1,5 +1,8 @@
 package com.curewell.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,4 +28,7 @@ public class Doctor {
 	private String doctorSpecialisation;
 	private String doctorPassword;
 	private String city;
+	
+//	@OneToMany(mappedBy = "doctor")
+//	private List<Patient> patients=new ArrayList<>();
 }

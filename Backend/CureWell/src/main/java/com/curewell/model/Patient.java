@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -16,8 +17,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name="patient")
-public class Patient {
-	
+public class Patient {	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int patientId;
@@ -31,4 +31,7 @@ public class Patient {
 	private String patientGuardian;	
 	private long guardianContact;
 	private String patientPassword;
+//	@ManyToOne
+//	@JoinColumn(name = "doctorId")
+//	private Doctor doctor;
 }
