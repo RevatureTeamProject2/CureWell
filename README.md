@@ -1,6 +1,6 @@
 # CureWell
 <img src="https://github.com/RevatureTeamProject2/CureWell/blob/master/Frontend/src/assets/images/CureWell%20MAIN.png" width=300px>
-<p align='justify'> The Curewell is an Angular/Spring based application that simulates Patient Onboarding operations. A patient can sign up for an account, log into his account, book the appointments and view his health status reports. A doctor can view booked appointments and details of all the patients in his dashboard. The system will llow patients to submit and update patient information and store it securely making on-boarding faster and reliable. The main objective is to make the process smooth for the patient who wants to visit the hospital/clinic for consultation and/or procedure. Patient onboarding regulations should be researched and built into the application. </p>
+<p align='justify'> The Curewell is an Angular/Spring based application that simulates Patient Onboarding operations. A patient can sign up for an account, log into his account, book the appointments and view his health status reports. A doctor can view booked appointments and details of all the patients in his dashboard. The system will allow patients to submit and update patient information and store it securely making on-boarding faster and reliable. The main objective is to make the process smooth for the patient who wants to visit the hospital/clinic for consultation and/or procedure. Patient onboarding regulations should be researched and built into the application. </p>
 
     
 ## Authors
