@@ -18,6 +18,26 @@ import lombok.Data;
 @Entity
 @Table(name="patient")
 public class Patient {	
+	
+	
+	public Patient(int patientId, String patientEmailId, String patientName, long patientContact, String patientAddress,
+			String patientGender, int patientAge, String patientGuardian, long guardianContact,
+			String patientPassword) {
+		super();
+		this.patientId = patientId;
+		this.patientEmailId = patientEmailId;
+		this.patientName = patientName;
+		this.patientContact = patientContact;
+		this.patientAddress = patientAddress;
+		this.patientGender = patientGender;
+		this.patientAge = patientAge;
+		this.patientGuardian = patientGuardian;
+		this.guardianContact = guardianContact;
+		this.patientPassword = patientPassword;
+	}
+	
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int patientId;

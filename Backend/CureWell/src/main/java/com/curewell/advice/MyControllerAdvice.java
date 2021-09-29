@@ -25,9 +25,9 @@ import com.curewell.exception.PatientAddingException;
 public class MyControllerAdvice {
 	
 	@ExceptionHandler(InvaliInputException.class)
-	public ResponseEntity<String> handleInvaliInputException(InvaliInputException elementException)
+	public ResponseEntity<String> handleInvalidInputException(InvaliInputException elementException)
 	{
-		return new  ResponseEntity<String>("Plaese Enter valid Input..", HttpStatus.BAD_REQUEST);
+		return new  ResponseEntity<String>("Please Enter valid Input..", HttpStatus.BAD_REQUEST);
 	}
 	
 	@ExceptionHandler(NoSuchElementException.class)
