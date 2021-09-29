@@ -14,6 +14,7 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
 import { ViewAppointmentsComponent } from './components/view-appointments/view-appointments.component';
 import{ OrderMedicinesComponent} from './components/order-medicines/order-medicines.component';
 import { PatientHistoryComponent } from './components/patient-history/patient-history.component';
+import { ComingSoonComponent } from './components/coming-soon/coming-soon.component';
 
 const routes: Routes = [
   { path: '', component:HomePageComponent },
@@ -29,7 +30,8 @@ const routes: Routes = [
   { path: 'doctor-dashboard', component:DoctorDashboardComponent},
   {path:'view-appiontment',component:ViewAppointmentsComponent},
   {path:'order-medicines', component:OrderMedicinesComponent},
-  {path:'patient-history',component:PatientHistoryComponent}
+  {path:'patient-history',component:PatientHistoryComponent},
+  {path:'coming-soon',component:ComingSoonComponent}
 
 
 

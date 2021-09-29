@@ -1,0 +1,23 @@
+.feature {
+    color: aliceblue;
+    font-family: 'Bell MT';
+    font-size: 75px;
+}
+
+.nFeatureP {
+    color: antiquewhite;
+    font-family: 'Bell MT';
+    font-size: 30px;
+}
+
+.showHome {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: blanchedalmond;
+}
+
+.showHome:hover {
+    color: teal;
+    text-decoration: none;
+}

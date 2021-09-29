@@ -23,6 +23,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PNavbarComponent } from './components/p-navbar/p-navbar.component';
 import { DNavbarComponent } from './components/d-navbar/d-navbar.component';
+import { ComingSoonComponent } from './components/coming-soon/coming-soon.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { DNavbarComponent } from './components/d-navbar/d-navbar.component';
     FooterComponent,
     PNavbarComponent,
     DNavbarComponent,
+    ComingSoonComponent,
 
 
   ],
