@@ -20,6 +20,7 @@ export class DoctorLoginComponent implements OnInit {
   doctorPassword?:string;
   doctorLoginForm?:FormGroup;
   errorMessage?:string;
+  err?:string;
   
 
   constructor(public patientService:PatientService, public router:Router,public activatedRoute: ActivatedRoute,public formBuilder:FormBuilder,public doctorService:DoctorService) { }
@@ -61,9 +62,8 @@ export class DoctorLoginComponent implements OnInit {
       },
       error => {      
              
-       console.log("#######Logged successfully ");
-       new success();
-       this.router.navigate(['doctor-dashboard'])
+        this.err = "Please enter correct Email Id and/or Password!";
+        this.router.navigate(['doctor-login']);
  
       });
 

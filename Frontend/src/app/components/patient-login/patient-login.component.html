@@ -1,7 +1,8 @@
 <app-navbar></app-navbar>
 <br>
-<h2 class="welcomeh2">Patient Login Form</h2>
-<p style="color: #f34f4e; text-align: center; font-weight: bold; font-size: 20px; font-style: Arial;">{{errorMessage}}</p>
+<h2 class="welcomeh2">Patient Login</h2>
+<p style="color: #f34f4e; text-align: center; font-weight: bold; font-size: 20px; font-style: Arial;">{{errorMessage}}
+</p>
 <br>
 
 <div class="container" style="color: black; font-family: 'Bell MT'; font-size: 18px; font-weight: bold;">
@@ -26,9 +27,9 @@
                 <div class="form-group col-md-6 col-mb-6"></div>
                 <div class="form-group col-md-5 col-mb-6">
                     <div class="form-group">
-                        <label for="password">Patient Password</label>
-                        <input type="password" class="form-control" formControlName="patientPassword" name="password"
-                            id="password">
+                        <label for="patientPassword">Patient Password</label>
+                        <input type="password" class="form-control" formControlName="patientPassword" name="patientPassword"
+                            id="patientPassword">
                         <div class="alert alert-danger"
                             *ngIf="patientLoginForm.get('patientPassword').hasError('required') && patientLoginForm.get('patientPassword').dirty">
                             Only Alphanumeric Password of atleast 8 characters is required.
@@ -40,14 +41,18 @@
             </div>
 
         </fieldset>
+        <p style="color: red; text-align: center; font-weight: bold; font-size: 20px; font-style: 'Bell MT';">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            {{err}}
+        </p>
         <div class="form-group row">
-        <div class="form-group col-md-6 col-mb-6"></div>
-        <div class="form-group col-md-5 buttons" align=center>
-        <button type="submit" class="btn-lg btn-success" [disabled]="patientLoginForm.invalid">Login</button>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button type="reset" class="btn-lg btn-info">Clear</button>
+            <div class="form-group col-md-6 col-mb-6"></div>
+            <div class="form-group col-md-5 buttons" align=center>
+                <button type="submit" class="btn-lg btn-success" [disabled]="patientLoginForm.invalid">Login</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="reset" class="btn-lg btn-info">Clear</button>
+            </div>
         </div>
-    </div>
     </form>
 </div>
 
