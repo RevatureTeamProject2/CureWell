@@ -28,7 +28,4 @@ public class Doctor {
 	private String doctorSpecialisation;
 	private String doctorPassword;
 	private String city;
-	
-//	@OneToMany(mappedBy = "doctor")
-//	private List<Patient> patients=new ArrayList<>();
 }

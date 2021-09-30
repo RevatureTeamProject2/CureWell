@@ -44,8 +44,6 @@ public class DoctorServiceImpl implements DoctorService {
 
 	@Override
 	public Doctor getDoctorById(int doctorId) throws Exception {
-
-		// System.out.println("----- doctor by id called -Service");
 		Doctor doctor2=null;
 		doctor2=doctorRepository.findDoctorByDoctorId(doctorId);
 		return doctor2;

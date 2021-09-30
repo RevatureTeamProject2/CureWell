@@ -52,7 +52,7 @@ public class PatientServiceImpl implements  PatientService {
 	}
 	
 	@Override
-	public List<Patient> getPatientByPatientName(String patientName) throws Exception{
+	public List<Patient> getPatientByPatientName(String patientName) {
 		List<Patient> patients= patientRepository.findPatientByPatientName(patientName);
 		if(patients.size()==0)
 		{
@@ -62,7 +62,7 @@ public class PatientServiceImpl implements  PatientService {
 	}
 	
 	@Override
-	public List<Patient> getAllPatient() throws Exception {
+	public List<Patient> getAllPatient() {
 		List<Patient> patients= patientRepository.findAll();
 		if(patients.size()==0)
 		{
