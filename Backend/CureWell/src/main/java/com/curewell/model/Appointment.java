@@ -15,9 +15,14 @@ import lombok.Data;
 @Table(name = "appointment")
 public class Appointment {
 	
-	@Id
+//	@Id
 //	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	private int appointmentId;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int appointmentId;
+	
 	private String patientName;	
 	private String reasonToVisit;
 	private String date;

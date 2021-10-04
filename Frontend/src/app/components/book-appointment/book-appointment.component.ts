@@ -47,8 +47,8 @@ export class BookAppointmentComponent implements OnInit {
             }
             else{
               
-               console.log("login failed")
-               this.router.navigate(['patient-login-success'])
+              //  console.log("login failed")
+              //  this.router.navigate(['patient-login-success'])
             }
            
           },
