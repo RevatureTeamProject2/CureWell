@@ -14,7 +14,16 @@
 **Client:** HTML, CSS, BootStrap, JavaScript, TypeScript, Angular. <br>
 **Server:** Java, MySql, Spring-Core, Spring-Boot.
 
-  
+## Features
+1. A patient can register himself.
+2. An existing patient can login.
+3. A patient can book an appointment.
+4. A patient can cancle booked appointment.
+5. A patient can buy medicines. 
+6. A doctor can check booked appointment list.
+7. A doctor can check list of his patient.
+
+
 ## Appendix
 Any additional information goes here
 
